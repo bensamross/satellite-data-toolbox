@@ -1,0 +1,8 @@
+folium
+pandas
+matplotlib
+xarray
+ipyleaflet
+sentinelhub
+scikit-learn
+rasterio

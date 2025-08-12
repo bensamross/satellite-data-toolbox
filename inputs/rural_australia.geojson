@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "name": "rural_australia",
+  "crs": { "type": "name", "properties": { "name": "EPSG:4326" } },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "description": "Approx 26.5 ha rural polygon near central NSW, Australia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [144.9975, -31.0025],
+            [145.0025, -31.0025],
+            [145.0025, -30.9975],
+            [144.9975, -30.9975],
+            [144.9975, -31.0025]
+          ]
+        ]
+      }
+    }
+  ]
+}
