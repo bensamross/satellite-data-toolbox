@@ -1,4 +1,13 @@
+tqdm
+shapely
 pandas
 matplotlib
 xarray
 rasterio
+numpy
+rioxarray
+# dask
+# distributed
+pystac-client
+planetary-computer
+odc-stac

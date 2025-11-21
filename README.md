@@ -83,3 +83,63 @@ The Sentinel Hub QGIS plugin allows direct integration of imagery from the Coper
 The plugin handles search by date and location, filtering by cloud cover and time range mosaicking. A wide range of visualizations is offered by default, and custom configurations are also supported. Direct imagery download from QGIS is also available. The QGIS plugin provides most of the functionality of the Copernicus Browser directly within open-source GIS software.
 
 [https://plugins.qgis.org/plugins/SentinelHub/](https://plugins.qgis.org/plugins/SentinelHub/)
+
+## How to establish a persistent dask processing cluster
+
+In one terminal window type `dask scheduler`
+
+And in another window type `dask worker tcp://127.0.0.1:8786 --nworkers 2 --nthreads 2 --memory-limit 2GB`
+
+Then connect to the scheduler with the following
+```python
+scheduler_address = "tcp://10.226.68.22:8786"
+client = DaskClient(scheduler_address)
+```
+
+instead of
+```python
+def establishDaskCluster():
+    warnings.filterwarnings('ignore')
+    xr.set_options(keep_attrs=True)
+    cluster = LocalCluster(
+        n_workers=2,
+        threads_per_worker=2,
+        memory_limit='2GB',  # Add a memory limit per worker
+    )
+    client = DaskClient(cluster)  # suppress logs
+    return client
+
+# Establish Dask client
+client = establishDaskCluster()
+```
+
+### Index calculations
+```python
+def ndvi(nir: np.ndarray, red: np.ndarray) -> np.ndarray:
+    """
+    Calculate Normalized Difference Vegetation Index (NDVI).
+    NDVI = (NIR - Red) / (NIR + Red)
+    """
+    return (nir - red) / (nir + red + 1e-10)  # small epsilon avoids division by zero
+
+def evi(nir: np.ndarray, red: np.ndarray, blue: np.ndarray,
+        G: float = 2.5, C1: float = 6.0, C2: float = 7.5, L: float = 1.0) -> np.ndarray:
+    """
+    Calculate Enhanced Vegetation Index (EVI).
+    EVI = G * (NIR - Red) / (NIR + C1*Red - C2*Blue + L)
+    """
+    return G * ((nir - red) / (nir + (C1 * red) - (C2 * blue) + L + 1e-10))
+```
+
+Default constants:
+G = 2.5
+L = 1
+C₁ = 6
+C₂ = 7.5
+
+## The new plan
+
+## How to run the python scripts
+`python zonalStatistics.py --gpkg_path *.gpkg --forest 283 --output outputs/`
+
+`python zonalStatistics.py --gpkg_path *.gpkg --forest * --output outputs/ --start_from 16`
