@@ -102,6 +102,30 @@
                             "swir22": "B12"
                         }
                     ]
+                },
+                {
+                    "name": "sentinel-1-rtc",
+                    "common_name": "Sentinel 1 Radiometrically Terrain Corrected",
+                    "bands": [
+                        {
+                            "hh": "hh",
+                            "hv": "hv",
+                            "vh": "vh",
+                            "vv": "vv"
+                        }
+                    ]
+                },
+                {
+                    "name": "sentinel-1-grd",
+                    "common_name": "Sentinel 1 Level-1 Ground Range Detected",
+                    "bands": [
+                        {
+                            "hh": "hh",
+                            "hv": "hv",
+                            "vh": "vh",
+                            "vv": "vv"
+                        }
+                    ]
                 }
             ]
         }

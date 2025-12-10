@@ -20,6 +20,7 @@ Links
 - https://colab.research.google.com/github/spatialthoughts/geopython-tutorials/blob/main/notebooks/xarray_zonal_stats.ipynb
 - https://xarray-spatial.readthedocs.io/en/latest/user_guide/zonal.html
 - https://github.com/opendatacube/odc-stac
+
 # Sentinel Hub
 The Sentinel Hub is a set of RESTful APIs that provide access to various satellite imagery archives. It allows you to access raw satellite data, rendered images, statistical analysis, and other features.
 
@@ -143,3 +144,12 @@ C₂ = 7.5
 `python zonalStatistics.py --gpkg_path *.gpkg --forest 283 --output outputs/`
 
 `python zonalStatistics.py --gpkg_path *.gpkg --forest * --output outputs/ --start_from 16`
+
+## Notes
+> To pull sentinel-1 data from the 24/11/2025 storm event:
+    - item_url = "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-1-rtc/items/S1A_IW_GRDH_1SDV_20251122T191330_20251122T191355_061994_07C133_rtc" (for fraser coast before)
+    - item_url = "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-1-rtc/items/S1A_IW_GRDH_1SDV_20251122T191355_20251122T191420_061994_07C133_rtc" (for beerburrum before)
+> To pull sentinel-1 data from the 21/11/2025 storm event:
+    - item_url = "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2B_MSIL2A_20251124T000219_R030_T56JMS_20251124T013222" (for fraser coast before)
+    - item_url = "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2B_MSIL2A_20251124T000219_R030_T56JMR_20251124T013222" (for beerburrum before)
+> Include cloud mask information in the metadata so we can exclude clouded areas from the mean/median monthly summary which might skew the results

@@ -1,1 +1,2 @@
 DASK_ENABLED = True
+OUTPUT_DIRECTORY = "./outputs"

@@ -1,6 +1,8 @@
+pandas
+geopandas
+fiona
 tqdm
 shapely
-pandas
 matplotlib
 xarray
 rasterio

@@ -1,130 +1,81 @@
+import utilities
 from tqdm.auto import tqdm
-from shapely.geometry import mapping as shp_mapping
+import shapely
 import pandas as pd
 import re
 from pathlib import Path
 import numpy as np
 import rioxarray
 import xarray as xr
-# from dask.distributed import Client as DaskClient, LocalCluster
-# import warnings
 import geopandas as gpd
-from pathlib import Path
 from pystac_client import Client as StacClient
-import planetary_computer
 from odc.stac import stac_load
 import argparse
 import logging
 import sys
-from datetime import datetime
-
-def setup_logger(output_dir, forest_name=None):
-    """
-    Set up logging configuration to track script progress.
-    
-    Parameters
-    ----------
-    output_dir : str or Path
-        Directory where log files will be saved
-    forest_name : str, optional
-        Forest name for specific logging, or None for general logging
-    """
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
-    
-    # Create timestamped log filename
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    if forest_name:
-        log_filename = f"zonal_stats_{forest_name}_{timestamp}.log"
-    else:
-        log_filename = f"zonal_stats_all_forests_{timestamp}.log"
-    
-    log_path = output_dir / log_filename
-    
-    # Configure logging
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s',
-        handlers=[
-            logging.FileHandler(log_path),
-            logging.StreamHandler(sys.stdout)  # Also log to console
-        ]
-    )
-    
-    logger = logging.getLogger(__name__)
-    logger.info(f"Logging initialized. Log file: {log_path}")
-    
-    return logger
-
-def add(x, y):
-    return x + y
+import pathlib
 
 def compute_zonal_stats_bands(
     data_monthly,
     gdf,
+    key_column_name,
     bands,
-    aoi_crs,
     output_dir="outputs",
-    verbose=False,
-    logger=None
+    overwrite=True,
     ):
     """
     High-throughput zonal stats writer (batch mode).
 
-    Ensures consistent column order: unit_key,time,<band>_mean,...
+    Ensures consistent column order: key_column_name,time,<band>_mean,...
     """
-    if logger is None:
-        logger = logging.getLogger(__name__)
     
+    # Ensure output directory exists
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    unit_col_candidates = [c for c in gdf.columns if c.lower() == "unit_key"]
-    if not unit_col_candidates:
-        raise ValueError("GeoDataFrame must contain a UNIT_KEY column.")
-    unit_col = unit_col_candidates[0]
-
     # Pre-build canonical stat column names (order stable)
     stat_columns = [f"{b}_mean" for b in bands]
-    canonical_header = ["unit_key", "time"] + stat_columns
+    canonical_header = [key_column_name, "time"] + stat_columns
 
-    logger.info(f"Starting zonal statistics computation for {len(gdf)} features")
-    logger.info(f"Output directory: {output_dir}")
-    logger.info(f"Bands: {bands}")
-    
+    print(f"Starting zonal statistics computation for {len(gdf)} features")
+    print(f"Output directory: {output_dir}")
+    print(f"Bands: {bands}")
+
     processed_count = 0
     error_count = 0
     no_data_count = 0
 
     for idx, feat in tqdm(gdf.iterrows(), total=len(gdf)):
-        unit_key = feat[unit_col]
-        if pd.isna(unit_key):
-            logger.warning(f"Feature {idx} missing UNIT_KEY - skipping")
+        key_value = feat[key_column_name]
+        if pd.isna(key_value):
+            print(f"Feature {key_value} missing {key_column_name} - skipping")
             continue
 
-        out_path = output_dir / f"BANDS_row_{idx}.csv"
+        out_path = output_dir / f"BANDS_{key_value}.csv"
         
         # Check if file already exists (for resuming interrupted runs)
-        if out_path.exists():
-            logger.info(f"File already exists for {unit_key} (row {idx}) - skipping")
+        # TODO: ~~Dependent on a parameter to enable/disable overwrite~~
+        # TODO: If the file exists then check it for the specified time period and append missing data only
+        if overwrite is False and out_path.exists():
+            print(f"File already exists for {key_column_name} (row {idx}) - skipping")
             processed_count += 1
             continue
 
-        geom = [shp_mapping(feat.geometry)]
+        geom = [shapely.geometry.mapping(feat.geometry)]
 
         try:
-            clipped = data_monthly[bands].rio.clip(geom, aoi_crs, drop=True)
+            clipped = data_monthly[bands].rio.clip(geom, gdf.crs.to_string(), drop=True)
 
             mean_ds = clipped.mean(dim=("y", "x"))
             df_poly = mean_ds.to_dataframe().reset_index()
             df_poly.rename(columns={b: f"{b}_mean" for b in bands}, inplace=True)
 
-            # Add unit_key first so ordering works
-            df_poly["unit_key"] = unit_key
+            # Add key_column_name first so ordering works
+            df_poly[key_column_name] = key_value
             df_poly.sort_values("time", inplace=True)
 
             if df_poly.empty:
-                logger.warning(f"No data found for {unit_key} (row {idx})")
+                print(f"No data found for {key_column_name} (row {idx})")
                 no_data_count += 1
                 continue
 
@@ -137,146 +88,136 @@ def compute_zonal_stats_bands(
 
             df_poly.to_csv(out_path, index=False, header=True, mode="w")
             processed_count += 1
-            
-            if verbose or processed_count % 50 == 0:  # Log every 50 processed
-                logger.info(f"Processed {unit_key} (row {idx}): {len(df_poly)} time records -> {out_path}")
 
         except Exception as e:
-            error_count += 1
-            logger.error(f"Error processing {unit_key} (row {idx}): {e}")
-            continue
+            # Check if it's a "no data in bounds" error
+            if "No data found in bounds" in str(e):
+                no_data_count += 1
+                # Silently skip - this is expected for geometries outside data coverage
+                continue
+            else:
+                error_count += 1
+                print(f"Error processing {key_column_name} (row {idx}): {e}")
+                continue
 
-    logger.info(f"Zonal statistics complete. Processed: {processed_count}, Errors: {error_count}, No data: {no_data_count}")
+    print(f"Zonal statistics complete. Processed: {processed_count}, Errors: {error_count}, No data: {no_data_count}")
 
-# Establish a Dask cluster
-# def establishDaskCluster(logger=None):
-#     if logger is None:
-#         logger = logging.getLogger(__name__)
+def compute_zonal_stats_bands_vectorized(
+    data_monthly,
+    gdf,
+    key_column_name,
+    bands,
+    output_dir="outputs",
+    overwrite=True
+    ):
+    """
+    WARNING: This function is experimental.
+    Vectorized zonal stats (time-first approach) - more efficient memory usage.
+    
+    Processes all features for each time step, reducing clipping overhead.
+    """
+
+    print("WARNING: This function is experimental.")
+    logging.warning("Using experimental vectorized zonal stats function.")
+    
+    output_dir = pathlib.Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Pre-allocate storage for all features - ensure no NaN keys
+    valid_keys = gdf[key_column_name].dropna().unique()
+    
+    # Check for existing files if overwrite is False
+    if not overwrite:
+        existing_keys = []
+        for key in valid_keys:
+            out_path = output_dir / f"BANDS_{key}.csv"
+            if out_path.exists():
+                existing_keys.append(key)
         
-#     logger.info("Establishing Dask cluster...")
-#     warnings.filterwarnings('ignore')
-#     xr.set_options(keep_attrs=True)
-#     cluster = LocalCluster(
-#         n_workers=4,
-#         threads_per_worker=4,
-#         memory_limit='2GB',  # Add a memory limit per worker
-#     )
-#     client = DaskClient(cluster)  # suppress logs
-#     logger.info(f"Dask cluster established: {client}")
-#     return client
-
-def produceZonalStatisticsCSV(gpkg_path, forest_name, output_base_dir, logger=None):
-    """
-    Process zonal statistics for a specific FOREST from a geopackage.
+        if existing_keys:
+            print(f"Skipping {len(existing_keys)} features with existing files (overwrite=False)")
+            valid_keys = [k for k in valid_keys if k not in existing_keys]
     
-    Parameters
-    ----------
-    gpkg_path : str or Path
-        Path to the geopackage file
-    forest_name : str or int
-        Name/ID of the forest to filter on (FOREST column)
-    output_base_dir : str or Path
-        Base directory where output folders will be created
-    logger : logging.Logger, optional
-        Logger instance for tracking progress
-    """
-    if logger is None:
-        logger = logging.getLogger(__name__)
+    results_dict = {key: [] for key in valid_keys}
     
-    logger.info(f"Starting processing for FOREST='{forest_name}'")
+    print(f"Processing {len(data_monthly.time)} time steps for {len(valid_keys)} features")
+    print(f"Bands: {bands}")
     
-    # Read geopackage layer with FOREST filter
-    gpkg_path = Path(gpkg_path)
-    logger.info(f"Reading geopackage: {gpkg_path}")
+    processed_count = 0
+    error_count = 0
+    no_data_count = 0
+    skipped_count = 0
     
-    gdf = gpd.read_file(gpkg_path, layer='cptpoly_p')
-    # gdf = gpd.read_file(gpkg_path, layer='bomgrid')
-    logger.info(f"Loaded {len(gdf)} total features from geopackage")
-    
-    # Filter by FOREST column
-    if 'FOREST' not in gdf.columns:
-        error_msg = "GeoDataFrame must contain a FOREST column."
-        logger.error(error_msg)
-        raise ValueError(error_msg)
-    
-    # Convert forest_name to int if the FOREST column is numeric
-    if pd.api.types.is_numeric_dtype(gdf['FOREST']):
+    # Loop through time steps instead of features
+    for time_idx, time_val in tqdm(enumerate(data_monthly.time.values), total=len(data_monthly.time)):
         try:
-            forest_name = int(forest_name)
-            logger.info(f"Converted forest name to integer: {forest_name}")
-        except ValueError:
-            error_msg = f"FOREST column is numeric but '{forest_name}' cannot be converted to integer"
-            logger.error(error_msg)
-            print(error_msg)
-            return
+            # Get data for this single time step - ensure it's loaded
+            data_slice = data_monthly.isel(time=time_idx)[bands].compute()
+            
+            # Compute stats for all features at once
+            for idx, feat in gdf.iterrows():
+                key_value = feat[key_column_name]
+                
+                if pd.isna(key_value):
+                    continue
+                
+                # Skip if this key was already processed
+                if key_value not in results_dict:
+                    continue
+                
+                geom = [shapely.geometry.mapping(feat.geometry)]
+                
+                try:
+                    # Clip this feature for this time step
+                    clipped = data_slice.rio.clip(geom, gdf.crs.to_string(), drop=True)
+                    
+                    if clipped.sizes.get('x', 0) == 0 or clipped.sizes.get('y', 0) == 0:
+                        continue
+                    
+                    # Compute mean for each band
+                    stats = {}
+                    for b in bands:
+                        mean_val = clipped[b].mean().values
+                        stats[f"{b}_mean"] = float(mean_val) if not np.isnan(mean_val) else None
+                    
+                    stats['time'] = pd.Timestamp(time_val)
+                    
+                    results_dict[key_value].append(stats)
+                    processed_count += 1
+                    
+                except Exception as e:
+                    # Check if it's a "no data in bounds" error
+                    if "No data found in bounds" in str(e):
+                        no_data_count += 1
+                        # Silently skip - this is expected for geometries outside data coverage
+                        continue
+                    else:
+                        error_count += 1
+                        if error_count < 5:  # Print first few errors for debugging
+                            print(f"Error on feature {key_value}, time {time_val}: {e}")
+                        continue
+        
+        except Exception as e:
+            print(f"Error processing time step {time_idx}: {e}")
+            continue
     
-    gdf = gdf[gdf['FOREST'] == forest_name].copy()
+    # Write results to CSV files
+    for key_value, records in results_dict.items():
+        if not records:
+            continue
+        
+        df = pd.DataFrame(records)
+        df[key_column_name] = key_value
+        df = df[[key_column_name, 'time'] + [c for c in df.columns if c not in [key_column_name, 'time']]]
+        df.sort_values('time', inplace=True)
+        
+        out_path = output_dir / f"BANDS_{key_value}.csv"
+        df.to_csv(out_path, index=False)
     
-    if len(gdf) == 0:
-        warning_msg = f"No features found for FOREST='{forest_name}'"
-        logger.warning(warning_msg)
-        print(warning_msg)
-        return
-    
-    aoi_crs = gdf.crs or 'EPSG:4326'
-    logger.info(f"Filtered to {len(gdf)} features for FOREST='{forest_name}' | CRS: {gdf.crs}")
+    skipped_count = len(gdf[key_column_name].dropna().unique()) - len(valid_keys)
+    print(f"Complete. Processed: {processed_count}, Errors: {error_count}, No data: {no_data_count}, Skipped: {skipped_count}")
 
-    # Calculate the     ounding box for the STAC search
-    bbox = gdf.dissolve().total_bounds.tolist()
-    logger.info(f"Bounding box: {bbox}")
-
-    # Use Digital Earth Australia STAC catalog
-    logger.info("Connecting to Digital Earth Australia STAC catalog...")
-    catalog = StacClient.open("https://explorer.dea.ga.gov.au/stac")
-    import odc.stac
-    odc.stac.configure_rio(
-        cloud_defaults=True,
-        aws={"aws_unsigned": True},
-    )
-
-    # Build a query with the parameters above
-    logger.info("Searching for Landsat-8 datasets...")
-    results = catalog.search(
-        bbox=bbox,
-        collections=["ga_ls8c_ard_3"],
-        datetime="2015-01-01/2025-06-30",
-    )
-
-    items = list(results.items())
-    logger.info(f"Found {len(items)} Landsat-8 datasets")
-
-    # Enhanced bands list for comprehensive plant health monitoring
-    bands = ['nbart_blue', 'nbart_red', 'nbart_nir', 'nbart_swir_1', 'nbart_swir_2', 'nbart_green']
-    chunks = {'time': 1, 'x': 4096, 'y': 4096}
-    
-    logger.info(f"Loading data with bands: {bands}")
-    data = stac_load(items=items, bands=bands, bbox=bbox, groupby='time', chunks=chunks)
-
-    # aggregate to monthly using mean to reduce memory pressure
-    logger.info("Aggregating data to monthly means...")
-    data_monthly = data.resample(time='ME').mean()
-
-    # First, let's update the data loading to include more bands
-    logger.info(f"Data loaded successfully. Bands in dataset: {list(data_monthly.data_vars)}")
-
-    # Create output directory based on forest name
-    output_dir = Path(output_base_dir) / str(forest_name)
-    logger.info(f"Output directory: {output_dir}")
-    
-    # Use the function to extract band values
-    logger.info("Starting zonal statistics computation...")
-    compute_zonal_stats_bands(
-        data_monthly=data_monthly,
-        gdf=gdf,
-        bands=bands,
-        aoi_crs=gdf.crs,
-        output_dir=str(output_dir),
-        verbose=False,
-        logger=logger
-    )
-    
-    logger.info(f"Completed processing for FOREST='{forest_name}'")
-
+'''
 def collectAllForestsIteratively(gpkg_path, output_base_dir, start_from_forest=None):
     """
     Process zonal statistics for all unique FOREST values in the geopackage.
@@ -291,7 +232,7 @@ def collectAllForestsIteratively(gpkg_path, output_base_dir, start_from_forest=N
         Forest number to start processing from (for resuming interrupted runs)
     """
     # Set up general logger for all forests processing
-    logger = setup_logger(output_base_dir, forest_name=None)
+    logger = utilities.setup_logger(output_base_dir, forest_name=None)
     
     logger.info("Starting processing for ALL forests")
     logger.info(f"Input geopackage: {gpkg_path}")
@@ -449,3 +390,4 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"Fatal error: {e}")
         sys.exit(1)
+'''

@@ -4,3 +4,4 @@ __pycache__/
 .vscode/
 outputs/
 inputs/
+example/example_outputs/

@@ -3,13 +3,14 @@ from pathlib import Path
 import argparse
 import sys
 
-def compile_unit_band_csvs(
+def compile_csvs(
     output_dir: str,
-    pattern: str = "BANDS_row*.csv",
-    combined_filename: str = "BANDS_all_units.csv",
+    pattern: str = "BANDS_*.csv",
+    combined_filename: str = "BANDS_combined.csv",
+    key_column_name: str = "key",
     recursive: bool = False,
     verbose: bool = True
-) -> pd.DataFrame:
+) -> None:
     """
     Combine all CSV files matching a pattern in a directory into a single CSV.
     
@@ -29,13 +30,12 @@ def compile_unit_band_csvs(
     Returns
     -------
     pd.DataFrame
-        Combined dataframe with all unit data
+        Combined dataframe with all data
     """
     outdir = Path(output_dir)
     
     if not outdir.exists():
         print(f"Error: Directory '{outdir}' does not exist")
-        return pd.DataFrame()
     
     # Use rglob for recursive search or glob for current directory only
     if recursive:
@@ -53,7 +53,6 @@ def compile_unit_band_csvs(
     if not files:
         search_desc = "recursively" if recursive else "in directory"
         print(f"No files found matching pattern '{pattern}' {search_desc} in {outdir}")
-        return pd.DataFrame()
 
     dfs = []
     successful_files = 0
@@ -75,25 +74,24 @@ def compile_unit_band_csvs(
 
     if not dfs:
         print("No data files successfully loaded.")
-        return pd.DataFrame()
 
     if verbose:
         print(f"\nCombining {successful_files} files...")
     
     combined = pd.concat(dfs, ignore_index=True)
-    combined = combined.sort_values(["unit_key", "time"])
+    combined = combined.sort_values([key_column_name, "time"])
     
     # Create output path
     output_path = outdir / combined_filename
     combined.to_csv(output_path, index=False)
     
     if verbose:
-        print(f"  Summary:")
-        print(f"  Files processed: {successful_files}")
-        print(f"  Files failed: {failed_files}")
-        print(f"  Total rows: {len(combined):,}")
-        print(f"  Unique units: {combined['unit_key'].nunique()}")
-        print(f"  Date range: {combined['time'].min()} to {combined['time'].max()}")
+        print(f"Summary:")
+        print(f"Files processed: {successful_files}")
+        print(f"Files failed: {failed_files}")
+        print(f"Total rows: {len(combined):,}")
+        print(f"Unique keys: {combined[key_column_name].nunique()}")
+        print(f"Date range: {combined['time'].min()} to {combined['time'].max()}")
         if recursive:
             # Show unique subdirectories when recursive
             subdirs = set(fp.parent.relative_to(outdir) for fp in files if fp.parent != outdir)
@@ -101,7 +99,7 @@ def compile_unit_band_csvs(
                 print(f"  Subdirectories processed: {len(subdirs)} ({', '.join(str(d) for d in sorted(subdirs))})")
         print(f"  Output file: {output_path.resolve()}")
     
-    return combined
+    # return combined
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -116,14 +114,20 @@ if __name__ == "__main__":
     parser.add_argument(
         '--pattern',
         type=str,
-        default='BANDS_row*.csv',
+        default='BANDS_1*.csv',
         help='Glob pattern to match CSV files (default: BANDS_*.csv)'
     )
     parser.add_argument(
         '--output',
         type=str,
-        default='BANDS_all_units.csv',
-        help='Name for the combined output CSV file (default: BANDS_all_units.csv)'
+        default='BANDS_combined.csv',
+        help='Name for the combined output CSV file (default: BANDS_combined.csv)'
+    )
+    parser.add_argument(
+        '--key_column_name',
+        type=str,
+        default='key',
+        help='Name of the key column to sort and count unique values (default: key)'
     )
     parser.add_argument(
         '--recursive',
@@ -139,10 +143,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     try:
-        result = compile_unit_band_csvs(
+        result = compile_csvs(
             output_dir=args.target_folder,
             pattern=args.pattern,
             combined_filename=args.output,
+            key_column_name=args.key_column_name,
             recursive=args.recursive,
             verbose=not args.quiet
         )
