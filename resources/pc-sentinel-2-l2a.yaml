@@ -1,0 +1,7 @@
+url: "https://planetarycomputer.microsoft.com/api/stac/v1/"      
+name: "sentinel-2-l2a"
+common_name: "Sentinel-2A"
+bands: ["B02", "B03", "B04", "B05", "B06", "B07", "B08", "B11", "B12", "SCL"]
+query:
+  "eo:cloud_cover":
+    lt: 20

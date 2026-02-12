@@ -145,6 +145,8 @@ C₂ = 7.5
 
 `python zonalStatistics.py --gpkg_path *.gpkg --forest * --output outputs/ --start_from 16`
 
+`python hexagons.py` 
+
 ## Notes
 > To pull sentinel-1 data from the 24/11/2025 storm event:
     - item_url = "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-1-rtc/items/S1A_IW_GRDH_1SDV_20251122T191330_20251122T191355_061994_07C133_rtc" (for fraser coast before)

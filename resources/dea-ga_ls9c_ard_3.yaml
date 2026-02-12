@@ -1,0 +1,4 @@
+url: "https://explorer.dea.ga.gov.au/stac"
+name: "ga_ls9c_ard_3"
+common_name: "Landsat-9"
+bands: ["nbart_blue", "nbart_green", "nbart_red", "nbart_nir", "nbart_swir_1", "nbart_swir_2", "oa_fmask"]

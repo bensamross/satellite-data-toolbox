@@ -1,0 +1,139 @@
+{
+    "stac_catalogs": [
+        {
+            "name": "Digital Earth Australia",
+            "url": "https://explorer.dea.ga.gov.au/stac",
+            "sensors": [
+                {
+                    "name": "ga_ls8c_ard_3",
+                    "common_name": "Landsat-8",
+                    "bands": [
+                        {
+                            "blue": "nbart_blue",
+                            "green": "nbart_green",
+                            "red": "nbart_red",
+                            "nir": "nbart_nir",
+                            "swir16": "nbart_swir_1",
+                            "swir22": "nbart_swir_2",
+                            "fmask": "oa_fmask"
+                        }
+                    ]
+                },
+                {
+                    "name": "ga_s2bm_ard_3",
+                    "common_name": "Sentinel-2B",
+                    "bands": [
+                        {
+                            "blue": "nbart_blue",
+                            "green": "nbart_green",
+                            "red": "nbart_red",
+                            "nir": "nbart_nir_1",
+                            "swir16": "nbart_swir_2",
+                            "swir22": "nbart_swir_3",
+                            "fmask": "oa_fmask"
+                        }
+                    ]
+                },
+                {
+                    "name": "ga_ls9c_ard_3",
+                    "common_name": "Landsat-9",
+                    "bands": [
+                        {
+                            "blue": "nbart_blue",
+                            "green": "nbart_green",
+                            "red": "nbart_red",
+                            "nir": "nbart_nir",
+                            "swir16": "nbart_swir_1",
+                            "swir22": "nbart_swir_2",
+                            "fmask": "oa_fmask"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Microsoft Planetary Computer",
+            "url": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+            "sensors": [
+                {
+                    "name": "landsat-c2-l2",
+                    "common_name": "Landsat-8",
+                    "bands": [
+                        {
+                            "blue": "blue",
+                            "green": "green",
+                            "red": "red",
+                            "nir": "nir08",
+                            "swir16": "swir16",
+                            "swir22": "swir22",
+                            "mask": "qa_pixel"
+                        }
+                    ],
+                    "query": {"eo:cloud_cover": {"lt": 20}, "platform": {"in": ["landsat-8"]}}
+                },
+                {
+                    "name": "sentinel-2-l2a",
+                    "common_name": "Sentinel-2A",
+                    "bands": [
+                        {
+                            "blue": "B02",
+                            "green": "B03",
+                            "red": "B04",
+                            "rededge1": "B05",
+                            "rededge2": "B06",
+                            "rededge3": "B07",
+                            "nir": "B08",
+                            "swir16": "B11",
+                            "swir22": "B12",
+                            "mask": "SCL"
+                            
+                        }
+                    ],
+                    "query": {"eo:cloud_cover": {"lt": 20}}
+                },
+                {
+                    "name": "hls2-s30",
+                    "common_name": "Harmonised Landsat/Sentinel-2",
+                    "bands": [
+                        {
+                            "blue": "B02",
+                            "green": "B03",
+                            "red": "B04",
+                            "rededge1": "B05",
+                            "rededge2": "B06",
+                            "rededge3": "B07",
+                            "nir": "B08",
+                            "swir16": "B11",
+                            "swir22": "B12",
+                            "mask": "Fmask"
+                        }
+                    ]
+                },
+                {
+                    "name": "sentinel-1-rtc",
+                    "common_name": "Sentinel 1 Radiometrically Terrain Corrected",
+                    "bands": [
+                        {
+                            "hh": "hh",
+                            "hv": "hv",
+                            "vh": "vh",
+                            "vv": "vv"
+                        }
+                    ]
+                },
+                {
+                    "name": "sentinel-1-grd",
+                    "common_name": "Sentinel 1 Level-1 Ground Range Detected",
+                    "bands": [
+                        {
+                            "hh": "hh",
+                            "hv": "hv",
+                            "vh": "vh",
+                            "vv": "vv"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

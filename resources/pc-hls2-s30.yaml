@@ -1,0 +1,4 @@
+url: "https://planetarycomputer.microsoft.com/api/stac/v1/"    
+name: "hls2-s30"
+common_name: "Harmonised Landsat/Sentinel-2"
+bands: ["B02", "B03", "B04", "B05", "B06", "B07", "B08", "B11", "B12", "Fmask"]

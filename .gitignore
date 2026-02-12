@@ -5,3 +5,5 @@ __pycache__/
 outputs/
 inputs/
 example/example_outputs/
+/notebooks/verification_standard
+data/

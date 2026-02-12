@@ -1,0 +1,10 @@
+url: "https://planetarycomputer.microsoft.com/api/stac/v1/"
+sensors:
+name: "landsat-c2-l2"
+common_name: "Landsat-8"
+bands: ["blue", "green", "red", "nir08", "swir16", "swir22", "qa_pixel"]
+query:
+  "eo:cloud_cover":
+    lt: 20
+  platform:
+    in: "landsat-8"

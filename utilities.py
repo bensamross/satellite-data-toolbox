@@ -1,9 +1,10 @@
 import json
 import pystac_client
-# import planetary_computer # typically planetary computer is slow compared to Digital Earth Australia
 import odc.stac
 import logging
 import fiona
+import yaml
+from pathlib import Path
 
 def setup_logger(output_dir, forest_name=None):
     """
@@ -19,7 +20,9 @@ def setup_logger(output_dir, forest_name=None):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    # Create timestamped log filename
+    from datetime import datetime
+    import sys
+    
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     if forest_name:
         log_filename = f"zonal_stats_{forest_name}_{timestamp}.log"
@@ -28,7 +31,6 @@ def setup_logger(output_dir, forest_name=None):
     
     log_path = output_dir / log_filename
     
-    # Configure logging
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
@@ -43,30 +45,61 @@ def setup_logger(output_dir, forest_name=None):
     
     return logger
 
-def fetch_resource_metadata(resources_file: str = "resources.json"):
+def load_resource(resource_file: str) -> dict:
     """
-    Fetch resource metadata from a local JSON file and return the sensor information to be fed into the STAC catalog search API.
+    Load a single resource YAML file and return its contents.
     
-    Example: get_catalog_item(fetch_resource_metadata()['url'])
-
+    Parameters
+    ----------
+    resource_file : str
+        Path to a resource YAML file (e.g., './resources/dea-ga_s2bm_ard_3.yaml')
+    
+    Returns
+    -------
+    dict
+        Dictionary with keys: url, name, common_name, bands
     """
-    with open(resources_file, "r") as file:
-        data = json.load(file)
+    resource_path = Path(resource_file)
+    if not resource_path.exists():
+        raise FileNotFoundError(f"Resource file not found: {resource_file}")
+    
+    with resource_path.open("r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
 
-        # Search for an item containing the name "Digital Earth Australia"
-        result = next((item for item in data['stac_catalogs'] if "Digital Earth Australia" in item.get('name', '')), None)
-
-        # if result:
-        #     # Search for a sensor with the name "ga_ls8c_ard_3"
-        #     sensor = next((sensor for sensor in result['sensors'] if sensor.get('name') == "ga_ls8c_ard_3"), None)
-        #     return sensor
-        
-        return result
+# Keep for backwards compatibility
+def fetch_resource_metadata(resources_file: str = "resources.yaml"):
+    """
+    Deprecated: Use load_resource() instead for the new single-file format.
+    """
+    resources_path = Path(resources_file)
+    if resources_path.suffix in (".yaml", ".yml"):
+        with resources_path.open("r") as file:
+            data = yaml.safe_load(file)
+    else:
+        with resources_path.open("r") as file:
+            data = json.load(file)
+    
+    return data
 
 def get_catalog_item(url: str):
-    catalog = pystac_client.Client.open(url)
+    """
+    Returns a STAC catalog item from the given URL. Modifies the request if the URL is for Planetary Computer because it requires signing.
 
-    # catalog = pystac_client.Client.open('https://planetarycomputer.microsoft.com/api/stac/v1/', modifier=planetary_computer.sign_inplace)
+    Parameters
+    ----------
+    url : str
+        STAC API URL
+    
+    Returns
+    -------
+    pystac_client.Client
+        STAC catalog client
+    """
+    if "planetarycomputer.microsoft.com" in url:
+        import planetary_computer # typically planetary computer is slow compared to Digital Earth Australia
+        catalog = pystac_client.Client.open(url, modifier=planetary_computer.sign_inplace)
+    else:
+        catalog = pystac_client.Client.open(url)
 
     # odc.stac.configure_rio(
     #     cloud_defaults=True,
@@ -85,6 +118,7 @@ def list_asset_values(catalog, collections: list[str]) -> list[str]:
 
 def get_string_for_relative_date(num_days_in_past: int):
     # TODO: implement a function to get data relative to today's date, so when this function is run on an automated schedule it always fetches the most recent data
+    # TODO: perhaps this can be replaced with the ./progress_tracker.py functions later on
     
     # start = datetime.now() - timedelta(days=num_days_in_past)
     # end = datetime.now()
@@ -123,6 +157,19 @@ def get_data_from_stac(url: str, bounds: list, sensor_name: list, sensor_bands: 
     return data
 
 def resample_stac_data_to_data_monthly(data):
+    """
+    Take the raw data from the STAC API and resample to monthly frequency using median aggregation.
+
+    Parameters
+    ----------
+    data : xarray.Dataset
+        STAC data with time dimension
+
+    Returns
+    -------
+    xarray.Dataset
+        Dataset resampled to monthly frequency
+    """
     data_monthly = data.resample(time='1ME').median()
     return data_monthly
 
@@ -179,6 +226,14 @@ def list_fields_in_layer(gpkg_path: str, layer_name: str) -> list[str]:
     with fiona.open(gpkg_path, layer=layer_name) as layer:
         fields = list(layer.schema['properties'].keys())
     return fields
+
+def list_rows_in_layer(gpkg_path: str, layer_name: str) -> int:
+    with fiona.open(gpkg_path, layer=layer_name) as layer:
+        row_count = len(layer)
+    return row_count
+
+def is_layer_row_count_large(row_count: int, threshold: int = 8192) -> bool:
+    return row_count > threshold
 
 # Establish a Dask cluster, typically this is handled automatically but you can define the cluster to have more control
 # def establishDaskCluster(logger=None):
