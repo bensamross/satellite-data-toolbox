@@ -114,7 +114,8 @@ def compute_zonal_stats_bands_vectorized(
     WARNING: This function is experimental.
     Vectorized zonal stats (time-first approach) - more efficient memory usage.
     
-    Processes all features for each time step, reducing clipping overhead.
+    Processes all features for each time step, writing results to CSV
+    incrementally to reduce memory usage and protect against crashes.
     """
 
     print("WARNING: This function is experimental.")
@@ -122,6 +123,10 @@ def compute_zonal_stats_bands_vectorized(
     
     output_dir = pathlib.Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Pre-build canonical stat column names (order stable)
+    stat_columns = [f"{b}_mean" for b in bands]
+    canonical_header = [key_column_name, "time"] + stat_columns
     
     # Pre-allocate storage for all features - ensure no NaN keys
     valid_keys = gdf[key_column_name].dropna().unique()
@@ -138,10 +143,16 @@ def compute_zonal_stats_bands_vectorized(
             print(f"Skipping {len(existing_keys)} features with existing files (overwrite=False)")
             valid_keys = [k for k in valid_keys if k not in existing_keys]
     
-    results_dict = {key: [] for key in valid_keys}
+    # Write CSV headers for all valid keys upfront (overwrite mode)
+    csv_paths = {}
+    for key in valid_keys:
+        out_path = output_dir / f"BANDS_{key}.csv"
+        csv_paths[key] = out_path
+        # Write header row
+        pd.DataFrame(columns=canonical_header).to_csv(out_path, index=False, mode="w")
     
     print(f"Processing {len(data_monthly.time)} time steps for {len(valid_keys)} features")
-    print(f"Bands: {bands}")
+    # print(f"Bands: {bands}")
     
     processed_count = 0
     error_count = 0
@@ -149,20 +160,20 @@ def compute_zonal_stats_bands_vectorized(
     skipped_count = 0
     
     # Loop through time steps instead of features
-    for time_idx, time_val in tqdm(enumerate(data_monthly.time.values), total=len(data_monthly.time)):
+    for time_idx, time_val in tqdm(enumerate(data_monthly.time.values), total=len(data_monthly.time), desc="Processing time steps"):
         try:
             # Get data for this single time step - ensure it's loaded
             data_slice = data_monthly.isel(time=time_idx)[bands].compute()
             
             # Compute stats for all features at once
-            for idx, feat in gdf.iterrows():
+            for idx, feat in tqdm(gdf.iterrows(), total=len(gdf)):
                 key_value = feat[key_column_name]
                 
                 if pd.isna(key_value):
                     continue
                 
-                # Skip if this key was already processed
-                if key_value not in results_dict:
+                # Skip if this key was already processed or not in valid set
+                if key_value not in csv_paths:
                     continue
                 
                 geom = [shapely.geometry.mapping(feat.geometry)]
@@ -175,21 +186,21 @@ def compute_zonal_stats_bands_vectorized(
                         continue
                     
                     # Compute mean for each band
-                    stats = {}
+                    row = {key_column_name: key_value, 'time': pd.Timestamp(time_val)}
                     for b in bands:
                         mean_val = clipped[b].mean().values
-                        stats[f"{b}_mean"] = float(mean_val) if not np.isnan(mean_val) else None
+                        row[f"{b}_mean"] = float(mean_val) if not np.isnan(mean_val) else None
                     
-                    stats['time'] = pd.Timestamp(time_val)
+                    # Append this single row to the feature's CSV immediately
+                    row_df = pd.DataFrame([row])[canonical_header]
+                    row_df.to_csv(csv_paths[key_value], index=False, header=False, mode="a")
                     
-                    results_dict[key_value].append(stats)
                     processed_count += 1
                     
                 except Exception as e:
                     # Check if it's a "no data in bounds" error
                     if "No data found in bounds" in str(e):
                         no_data_count += 1
-                        # Silently skip - this is expected for geometries outside data coverage
                         continue
                     else:
                         error_count += 1
@@ -201,21 +212,16 @@ def compute_zonal_stats_bands_vectorized(
             print(f"Error processing time step {time_idx}: {e}")
             continue
     
-    # Write results to CSV files
-    for key_value, records in results_dict.items():
-        if not records:
-            continue
-        
-        df = pd.DataFrame(records)
-        df[key_column_name] = key_value
-        df = df[[key_column_name, 'time'] + [c for c in df.columns if c not in [key_column_name, 'time']]]
-        df.sort_values('time', inplace=True)
-        
-        out_path = output_dir / f"BANDS_{key_value}.csv"
-        df.to_csv(out_path, index=False)
+    # Remove empty CSV files (header-only, no data rows)
+    empty_count = 0
+    for key_value, out_path in csv_paths.items():
+        df_check = pd.read_csv(out_path)
+        if df_check.empty:
+            out_path.unlink()
+            empty_count += 1
     
     skipped_count = len(gdf[key_column_name].dropna().unique()) - len(valid_keys)
-    print(f"Complete. Processed: {processed_count}, Errors: {error_count}, No data: {no_data_count}, Skipped: {skipped_count}")
+    print(f"Complete. Processed: {processed_count}, Errors: {error_count}, No data: {no_data_count}, Skipped: {skipped_count}, Empty (removed): {empty_count}")
 
 '''
 def collectAllForestsIteratively(gpkg_path, output_base_dir, start_from_forest=None):

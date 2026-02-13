@@ -236,21 +236,21 @@ def is_layer_row_count_large(row_count: int, threshold: int = 8192) -> bool:
     return row_count > threshold
 
 # Establish a Dask cluster, typically this is handled automatically but you can define the cluster to have more control
-# def establishDaskCluster(logger=None):
-#     if logger is None:
-#         logger = logging.getLogger(__name__)
+def establishDaskCluster(logger=None):
+    if logger is None:
+        logger = logging.getLogger(__name__)
         
-#     logger.info("Establishing Dask cluster...")
-#     warnings.filterwarnings('ignore')
-#     xr.set_options(keep_attrs=True)
-#     cluster = LocalCluster(
-#         n_workers=4,
-#         threads_per_worker=4,
-#         memory_limit='2GB',  # Add a memory limit per worker
-#     )
-#     client = DaskClient(cluster)  # suppress logs
-#     logger.info(f"Dask cluster established: {client}")
-#     return client
+    logger.info("Establishing Dask cluster...")
+    warnings.filterwarnings('ignore')
+    xr.set_options(keep_attrs=True)
+    cluster = LocalCluster(
+        n_workers=4,
+        threads_per_worker=4,
+        memory_limit='2GB',  # Add a memory limit per worker
+    )
+    client = DaskClient(cluster)  # suppress logs
+    logger.info(f"Dask cluster established: {client}")
+    return client
 
 def produceZonalStatisticsCSV(gpkg_path, forest_name, output_base_dir, logger=None):
     """

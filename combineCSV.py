@@ -114,7 +114,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--pattern',
         type=str,
-        default='BANDS_1*.csv',
+        default='BANDS_*.csv',
         help='Glob pattern to match CSV files (default: BANDS_*.csv)'
     )
     parser.add_argument(
