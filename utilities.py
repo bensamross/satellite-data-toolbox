@@ -2,8 +2,9 @@ import json
 import pystac_client
 import odc.stac
 import logging
-import fiona
+# import fiona
 import yaml
+import xarray as xr
 from pathlib import Path
 
 def setup_logger(output_dir, forest_name=None):
@@ -218,151 +219,47 @@ def calculate_ndvi(data, nir_band: str, red_band: str):
     ndvi = (data[nir_band] - data[red_band]) / (data[nir_band] + data[red_band])
     return ndvi
 
-def list_all_layers_in_geopackage(gpkg_path: str) -> list[str]:
-    layers = fiona.listlayers(gpkg_path)
-    return layers
+# def list_all_layers_in_geopackage(gpkg_path: str) -> list[str]:
+#     layers = fiona.listlayers(gpkg_path)
+#     return layers
 
-def list_fields_in_layer(gpkg_path: str, layer_name: str) -> list[str]:
-    with fiona.open(gpkg_path, layer=layer_name) as layer:
-        fields = list(layer.schema['properties'].keys())
-    return fields
+# def list_fields_in_layer(gpkg_path: str, layer_name: str) -> list[str]:
+#     with fiona.open(gpkg_path, layer=layer_name) as layer:
+#         fields = list(layer.schema['properties'].keys())
+#     return fields
 
-def list_rows_in_layer(gpkg_path: str, layer_name: str) -> int:
-    with fiona.open(gpkg_path, layer=layer_name) as layer:
-        row_count = len(layer)
-    return row_count
+# def list_rows_in_layer(gpkg_path: str, layer_name: str) -> int:
+#     with fiona.open(gpkg_path, layer=layer_name) as layer:
+#         row_count = len(layer)
+#     return row_count
 
-def is_layer_row_count_large(row_count: int, threshold: int = 8192) -> bool:
-    return row_count > threshold
+# def get_layer_crs(gpkg_path: str, layer_name: str) -> str:
+#     with fiona.open(gpkg_path, layer=layer_name) as layer:
+#         crs = layer.crs
+#     return crs
+
+# def is_layer_row_count_large(row_count: int, threshold: int = 8192) -> bool:
+#     return row_count > threshold
 
 # Establish a Dask cluster, typically this is handled automatically but you can define the cluster to have more control
 def establishDaskCluster(logger=None):
+    from dask.distributed import Client as DaskClient, LocalCluster
+    import warnings
+    warnings.filterwarnings('ignore')
+
     if logger is None:
         logger = logging.getLogger(__name__)
         
     logger.info("Establishing Dask cluster...")
-    warnings.filterwarnings('ignore')
     xr.set_options(keep_attrs=True)
     cluster = LocalCluster(
         n_workers=4,
         threads_per_worker=4,
-        memory_limit='2GB',  # Add a memory limit per worker
+        memory_limit='8GB',  # Add a memory limit per worker
     )
     client = DaskClient(cluster)  # suppress logs
     logger.info(f"Dask cluster established: {client}")
     return client
-
-def produceZonalStatisticsCSV(gpkg_path, forest_name, output_base_dir, logger=None):
-    """
-    Process zonal statistics for a specific FOREST from a geopackage.
-    
-    Parameters
-    ----------
-    gpkg_path : str or Path
-        Path to the geopackage file
-    forest_name : str or int
-        Name/ID of the forest to filter on (FOREST column)
-    output_base_dir : str or Path
-        Base directory where output folders will be created
-    logger : logging.Logger, optional
-        Logger instance for tracking progress
-    """
-    if logger is None:
-        logger = logging.getLogger(__name__)
-    
-    logger.info(f"Starting processing for FOREST='{forest_name}'")
-    
-    # Read geopackage layer with FOREST filter
-    gpkg_path = Path(gpkg_path)
-    logger.info(f"Reading geopackage: {gpkg_path}")
-    
-    gdf = gpd.read_file(gpkg_path, layer='cptpoly_p')
-    # gdf = gpd.read_file(gpkg_path, layer='bomgrid')
-    logger.info(f"Loaded {len(gdf)} total features from geopackage")
-    
-    # Filter by FOREST column
-    if 'FOREST' not in gdf.columns:
-        error_msg = "GeoDataFrame must contain a FOREST column."
-        logger.error(error_msg)
-        raise ValueError(error_msg)
-    
-    # Convert forest_name to int if the FOREST column is numeric
-    if pd.api.types.is_numeric_dtype(gdf['FOREST']):
-        try:
-            forest_name = int(forest_name)
-            logger.info(f"Converted forest name to integer: {forest_name}")
-        except ValueError:
-            error_msg = f"FOREST column is numeric but '{forest_name}' cannot be converted to integer"
-            logger.error(error_msg)
-            print(error_msg)
-            return
-    
-    gdf = gdf[gdf['FOREST'] == forest_name].copy()
-    
-    if len(gdf) == 0:
-        warning_msg = f"No features found for FOREST='{forest_name}'"
-        logger.warning(warning_msg)
-        print(warning_msg)
-        return
-    
-    aoi_crs = gdf.crs or 'EPSG:4326'
-    logger.info(f"Filtered to {len(gdf)} features for FOREST='{forest_name}' | CRS: {gdf.crs}")
-
-    # Calculate the     ounding box for the STAC search
-    bbox = gdf.dissolve().total_bounds.tolist()
-    logger.info(f"Bounding box: {bbox}")
-
-    # Use Digital Earth Australia STAC catalog
-    logger.info("Connecting to Digital Earth Australia STAC catalog...")
-    catalog = StacClient.open("https://explorer.dea.ga.gov.au/stac")
-    import odc.stac
-    odc.stac.configure_rio(
-        cloud_defaults=True,
-        aws={"aws_unsigned": True},
-    )
-
-    # Build a query with the parameters above
-    logger.info("Searching for Landsat-8 datasets...")
-    results = catalog.search(
-        bbox=bbox,
-        collections=["ga_ls8c_ard_3"],
-        datetime="2015-01-01/2025-06-30",
-    )
-
-    items = list(results.items())
-    logger.info(f"Found {len(items)} Landsat-8 datasets")
-
-    # Enhanced bands list for comprehensive plant health monitoring
-    bands = ['nbart_blue', 'nbart_red', 'nbart_nir', 'nbart_swir_1', 'nbart_swir_2', 'nbart_green']
-    chunks = {'time': 1, 'x': 4096, 'y': 4096}
-    
-    logger.info(f"Loading data with bands: {bands}")
-    data = stac_load(items=items, bands=bands, bbox=bbox, groupby='time', chunks=chunks)
-
-    # aggregate to monthly using mean to reduce memory pressure
-    logger.info("Aggregating data to monthly means...")
-    data_monthly = data.resample(time='ME').mean()
-
-    # First, let's update the data loading to include more bands
-    logger.info(f"Data loaded successfully. Bands in dataset: {list(data_monthly.data_vars)}")
-
-    # Create output directory based on forest name
-    output_dir = Path(output_base_dir) / str(forest_name)
-    logger.info(f"Output directory: {output_dir}")
-    
-    # Use the function to extract band values
-    logger.info("Starting zonal statistics computation...")
-    compute_zonal_stats_bands(
-        data_monthly=data_monthly,
-        gdf=gdf,
-        bands=bands,
-        aoi_crs=gdf.crs,
-        output_dir=str(output_dir),
-        verbose=False,
-        logger=logger
-    )
-    
-    logger.info(f"Completed processing for FOREST='{forest_name}'")
 
 def progress_monitor():
     # TODO: implement a progress monitor for long-running tasks and the ability to resume from last successful step
