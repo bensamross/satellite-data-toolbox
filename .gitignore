@@ -5,3 +5,10 @@ __pycache__/
 example/example_outputs/
 /notebooks/verification_standard
 data/
+*.pmtiles
+*.csv
+forest_health
+*.qgz
+*.pbix
+forest_health
+*.geojson

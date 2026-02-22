@@ -2,7 +2,7 @@ import json
 import pystac_client
 import odc.stac
 import logging
-# import fiona
+import fiona
 import yaml
 import xarray as xr
 from pathlib import Path
@@ -132,7 +132,12 @@ def get_data_from_stac(url: str, bounds: list, sensor_name: list, sensor_bands: 
     """
     Example: utilities.get_data_from_stac(url, sensor_name, bands, time_range="2020-01-01/2025-01-07")
     """
-    catalog = pystac_client.Client.open(url)
+
+    if "planetarycomputer.microsoft.com" in url:
+        import planetary_computer
+        catalog = pystac_client.Client.open(url, modifier=planetary_computer.sign_inplace)
+    else:
+        catalog = pystac_client.Client.open(url)
 
     odc.stac.configure_rio(
         cloud_defaults=True,
@@ -148,7 +153,7 @@ def get_data_from_stac(url: str, bounds: list, sensor_name: list, sensor_bands: 
     )
 
     # bands = ['nbart_blue', 'nbart_red', 'nbart_nir', 'nbart_swir_1', 'nbart_swir_2', 'nbart_green']
-    data_chunks = {'time': 1, 'x': 4096, 'y': 4096} # if the computer can handle it then typically larger chunks for the dask system is better because there will be less loading to and from memory
+    data_chunks = {'time': 1, 'x': 1024, 'y': 1024}
 
     fetched_items = list(results.items())
     # len(items), items[0] if items else None
@@ -219,27 +224,27 @@ def calculate_ndvi(data, nir_band: str, red_band: str):
     ndvi = (data[nir_band] - data[red_band]) / (data[nir_band] + data[red_band])
     return ndvi
 
-# def list_all_layers_in_geopackage(gpkg_path: str) -> list[str]:
-#     layers = fiona.listlayers(gpkg_path)
-#     return layers
+def list_all_layers_in_geopackage(gpkg_path: str) -> list[str]:
+    layers = fiona.listlayers(gpkg_path)
+    return layers
 
-# def list_fields_in_layer(gpkg_path: str, layer_name: str) -> list[str]:
-#     with fiona.open(gpkg_path, layer=layer_name) as layer:
-#         fields = list(layer.schema['properties'].keys())
-#     return fields
+def list_fields_in_layer(gpkg_path: str, layer_name: str) -> list[str]:
+    with fiona.open(gpkg_path, layer=layer_name) as layer:
+        fields = list(layer.schema['properties'].keys())
+    return fields
 
-# def list_rows_in_layer(gpkg_path: str, layer_name: str) -> int:
-#     with fiona.open(gpkg_path, layer=layer_name) as layer:
-#         row_count = len(layer)
-#     return row_count
+def list_rows_in_layer(gpkg_path: str, layer_name: str) -> int:
+    with fiona.open(gpkg_path, layer=layer_name) as layer:
+        row_count = len(layer)
+    return row_count
 
-# def get_layer_crs(gpkg_path: str, layer_name: str) -> str:
-#     with fiona.open(gpkg_path, layer=layer_name) as layer:
-#         crs = layer.crs
-#     return crs
+def get_layer_crs(gpkg_path: str, layer_name: str) -> str:
+    with fiona.open(gpkg_path, layer=layer_name) as layer:
+        crs = layer.crs
+    return crs
 
-# def is_layer_row_count_large(row_count: int, threshold: int = 8192) -> bool:
-#     return row_count > threshold
+def is_layer_row_count_large(row_count: int, threshold: int = 8192) -> bool:
+    return row_count > threshold
 
 # Establish a Dask cluster, typically this is handled automatically but you can define the cluster to have more control
 def establishDaskCluster(logger=None):

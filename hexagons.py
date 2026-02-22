@@ -49,7 +49,7 @@ def main():
         overwrite=True,
         use_dask=True,
         dask_client=dask_client,
-        batch_size=256,  # Adjust based on your memory availability
+        batch_size=50,  # Adjust based on your memory availability
     )
 
     # zonal_statistics.compute_zonal_stats_bands(

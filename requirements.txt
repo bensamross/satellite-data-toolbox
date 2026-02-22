@@ -8,8 +8,8 @@ xarray
 rasterio
 numpy
 rioxarray
-# dask
-# distributed
+dask
+distributed
 pystac-client
 planetary-computer
 odc-stac

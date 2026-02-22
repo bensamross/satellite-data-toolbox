@@ -163,3 +163,9 @@ Parallelism axis	Per-feature (each feature × all times = one task)	Per-time-ste
 Memory	Loads all time steps once, scatters to workers	Loads one time step at a time
 CSV writes	One write per feature (whole file at once)	Appends row-by-row per time step
 Best for	Fewer features, many time steps	Many features, fewer time steps
+
+
+## Notes
+For 1 year of time and 16 items the process took 06:25s and moved at 32.15s per time step. Of 12 time steps in total. 28GB > 4.6GB
+
+For 2017-01-01/2025-12-31 2048GB > 39GB for 4153 polygons at Elliott River and 102 time steps this takes 

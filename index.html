@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>MapLibre PMTiles Inspect</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+
+    <script
+        src='https://github.com/acalcutt/maplibre-gl-inspect/releases/download/v1.4.3/maplibre-gl-inspect.min.js'></script>
+    <link href='https://github.com/acalcutt/maplibre-gl-inspect/releases/download/v1.4.3/maplibre-gl-inspect.css'
+        rel='stylesheet' />
+
+    <script src="https://unpkg.com/pmtiles@2.2.0/dist/index.js"></script>
+
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='map'></div>
+    <script>
+        let protocol = new pmtiles.Protocol();
+        maplibregl.addProtocol("pmtiles", protocol.tile);
+        var map = new maplibregl.Map({
+            container: 'map',
+            style: {
+                "version": 8,
+                "name": "Basic preview",
+                "sources": {
+                    "osm": {
+                        "type": "raster",
+                        "tiles": ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+                        "tileSize": 256,
+                        "attribution": "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+                    },
+                    "h3": {
+                        "type": "vector",
+                        "url": "pmtiles://http://localhost:8080/h3.pmtiles",
+                        "maxzoom": 14
+                        // "url": "pmtiles://https://hqpresstgpr02.blob.core.windows.net/remotesensing/h3.pmtiles?st=2026-01-22T00:09:02Z&se=2028-01-15T08:24:02Z&si=RemoteSensing&spr=https&sv=2024-11-04&sr=c&sig=vkQ8zHMOLeLkQR3IfttthU9y64E55Mykl7aq2C0SLRc%3D",
+                        // "maxzoom": 14
+                    }
+                },
+                "layers": [
+                    {
+                        "id": "background",
+                        "type": "background",
+                        "layout": { "visibility": "visible" },
+                        "paint": { "background-color": "rgba(240, 244, 247, 1)" }
+                    },
+                    {
+                        "id": "osm-tiles",
+                        "type": "raster",
+                        "source": "osm",
+                        "minzoom": 0,
+                        "maxzoom": 19
+                    },
+                    {
+                        "id": "h3-fill",
+                        "type": "fill",
+                        "source": "h3",
+                        "source-layer": "h3",
+                        "filter": ["==", "$type", "Polygon"],
+                        "layout": { "visibility": "visible" },
+                        "paint": {
+                            "fill-color": [
+                                "case",
+                                ["all",
+                                    ["==", ["get", "within0km"], 1],
+                                    ["==", ["get", "level"], 10]
+                                ], "hsla(120, 56%, 53%, 0.75)",
+                                "hsla(205, 56%, 53%, 0.25)"
+                            ],
+                            "fill-outline-color": [
+                                "case",
+                                ["all",
+                                    ["==", ["get", "within0km"], 1],
+                                    ["==", ["get", "level"], 10]
+                                ], "hsl(120, 56%, 33%)",
+                                "hsl(205, 56%, 33%)"
+                            ]
+                        }
+                    }
+                ],
+                "id": "basic-preview"
+            },
+            center: [152.8315, -25.9294],
+            zoom: 14.3,
+            hash: true
+        });
+        map.addControl(new maplibregl.NavigationControl());
+        map.addControl(new MaplibreInspect({
+        }));
+
+        map.on('moveend', () => {
+            const features = map.queryRenderedFeatures({ layers: ['h3-fill'] })
+                .filter(f => f.properties.level === 5);
+            console.log(`Features in view with level 5: ${features.length}`);
+            features.forEach(f => console.log(f.properties));
+        });
+    </script>
+
+</body>
+
+</html>
