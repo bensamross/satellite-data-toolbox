@@ -1,4 +1,4 @@
 url: "https://explorer.dea.ga.gov.au/stac"
 name: "ga_s2bm_ard_3"
 common_name: "Sentinel-2B"
-bands: ["nbart_blue", "nbart_green", "nbart_red", "nbart_nir_1", "nbart_swir_2", "nbart_swir_3", "oa_fmask"]
+bands: ["nbart_blue", "nbart_green", "nbart_red", "nbart_nir_1", "nbart_swir_2", "nbart_swir_3", "oa_fmask", "oa_s2cloudless_mask", "oa_s2cloudless_prob"]

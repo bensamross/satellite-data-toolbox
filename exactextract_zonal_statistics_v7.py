@@ -6,29 +6,51 @@ import geopandas as gpd
 import pandas as pd
 from dask.distributed import Client, LocalCluster
 import tqdm
+import csv
+import os
+import traceback
 
 time_ranges = [
     # "2026-01-01/2026-12-31",
-    # "2025-01-01/2025-03-30",
-    # "2025-04-01/2025-06-30",
-    # "2025-07-01/2025-09-30",
-    # "2025-10-01/2025-12-31",
-    "2025-01-01/2025-12-31",
+        # "2025-01-01/2025-03-30",
+        # "2025-04-01/2025-06-30",
+        # "2025-07-01/2025-09-30",
+        # "2025-10-01/2025-12-31",
+    # "2025-01-01/2025-12-31",
     # "2024-01-01/2024-12-31",
     # "2023-01-01/2023-12-31",
-    # "2022-01-01/2022-12-31",
-    # "2021-01-01/2021-12-31",
-    # "2020-01-01/2020-12-31",
-    # "2019-01-01/2019-12-31",
-    # "2018-01-01/2018-12-31",
-    # "2017-01-01/2017-12-31"
+    "2022-01-01/2022-12-31",
+    "2021-01-01/2021-12-31",
+    "2020-01-01/2020-12-31",
+    "2019-01-01/2019-12-31",
+    "2018-01-01/2018-12-31",
+    "2017-01-01/2017-12-31"
     ]
+
+def _append_failure_row(failure_csv_path: str, row: dict):
+    fieldnames = [
+        "stage",
+        "time_range",
+        "acquisition_time",
+        "level5_id",
+        "error",
+        "traceback"
+    ]
+    file_exists = os.path.exists(failure_csv_path)
+    with open(failure_csv_path, "a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        if not file_exists:
+            writer.writeheader()
+        writer.writerow(row)
 
 def calculate():
 
     cluster = LocalCluster(n_workers=1, threads_per_worker=2)
     client = Client(cluster)
     print(client)
+
+    failure_csv_path = "zonal_stats_v7_failures.csv"
+    retry_rows = []
 
     for time_range in tqdm.tqdm(time_ranges, desc='Time ranges'):
         try:
@@ -47,8 +69,8 @@ def calculate():
             # intersection = intersection[intersection["level"] == 10].copy() # TODO: This has since been disabled as I don't think it will matter??
 
             # Fetch STAC data
-            # resource = utilities.load_resource("resources/dea-ga_s2bm_ard_3.yaml")
-            resource = utilities.load_resource("resources/pc-sentinel-2-l2a.yaml")
+            resource = utilities.load_resource("resources/dea-ga_s2bm_ard_3.yaml")
+            # resource = utilities.load_resource("resources/pc-sentinel-2-l2a.yaml")
             # resource = utilities.load_resource("resources/pc-landsat-c2-l2.yaml")
 
             url = resource["url"]
@@ -66,27 +88,26 @@ def calculate():
                 time_range=time_range
             )
 
-            # Ensure dask-backed chunks (tune sizes later)
-            # stac_data = stac_data.chunk({"time": 1, "x": 1024, "y": 1024})
-
             print(f"Raw data size {utilities.calculate_data_size_in_gb(stac_data):.2g} GB")
             print(f'Time steps: {len(stac_data.time)}')
             print(stac_data)
-
-
 
             intersection = intersection.to_crs("EPSG: 32756") # sentinel 2
             # intersection = intersection.to_crs("EPSG: 32656") # landsat 8
 
             df_output = pd.DataFrame()
 
-
-            for time in tqdm.tqdm(stac_data['time'], desc='Time steps'): # For each time step, which means the raster is loaded in memory one at a time, which is good for memory management
+            for time in tqdm.tqdm(stac_data['time'], desc='Time steps'):
                 try:
-                    for level5_id in tqdm.tqdm(intersection['GRID_ID_2'].unique(), total=len(intersection['GRID_ID_2'].unique()), desc='Level 5 polygons'):
+                    time_value = pd.to_datetime(time.values)
+
+                    for level5_id in tqdm.tqdm(
+                        intersection['GRID_ID_2'].unique(),
+                        total=len(intersection['GRID_ID_2'].unique()),
+                        desc='Level 5 polygons'
+                    ):
                         try:
                             subset = intersection[intersection['GRID_ID_2'] == level5_id]
-                            # print(level7_id, time['time'])
                             df = exactextract.exact_extract(
                                 rast=stac_data.sel(time=time['time'])[bands],
                                 vec=subset,
@@ -96,17 +117,59 @@ def calculate():
                                 include_cols=["GRID_ID"],
                                 progress=False
                             )
-                            df["time"] = pd.to_datetime(time.values)
+                            df["acquisition_time"] = time_value
                             df_output = pd.concat([df_output, df], ignore_index=True)
-                            # print(df)
+
                         except Exception as e:
                             print(f"Error processing level 5 polygon {level5_id} at time step {time}: {e}")
+                            row = {
+                                "stage": "level5_polygon",
+                                "time_range": time_range,
+                                "acquisition_time": str(time_value),
+                                "level5_id": str(level5_id),
+                                "error": str(e),
+                                "traceback": traceback.format_exc()
+                            }
+                            _append_failure_row(failure_csv_path, row)
+                            retry_rows.append({
+                                "time_range": time_range,
+                                "acquisition_time": str(time_value),
+                                "level5_id": str(level5_id)
+                            })
 
-                    df_output.to_csv(f"zonal_stats_v6_{time_range.replace('/', '_')}.csv", index=False)
+                    df_output.to_csv(f"zonal_stats_v7_{time_range.replace('/', '_')}.csv", index=False)
+
                 except Exception as e:
                     print(f"Error processing time step {time}: {e}")
+                    row = {
+                        "stage": "time_step",
+                        "time_range": time_range,
+                        "acquisition_time": str(pd.to_datetime(time.values)) if "time" in locals() else "",
+                        "level5_id": "",
+                        "error": str(e),
+                        "traceback": traceback.format_exc()
+                    }
+                    _append_failure_row(failure_csv_path, row)
+
         except Exception as e:
             print(f"Error processing time range {time_range}: {e}")
+            row = {
+                "stage": "time_range",
+                "time_range": time_range,
+                "acquisition_time": "",
+                "level5_id": "",
+                "error": str(e),
+                "traceback": traceback.format_exc()
+            }
+            _append_failure_row(failure_csv_path, row)
+
+    # Build retry queue from failed level-5 operations
+    if retry_rows:
+        retry_df = pd.DataFrame(retry_rows).drop_duplicates()
+        retry_df.to_csv(f"zonal_stats_v7_retry_queue.csv", index=False)
+        print(f"Retry queue written to zonal_stats_v7_retry_queue.csv with {len(retry_df)} items")
+
+    print(f"Failure log written to {failure_csv_path}")
 
 if __name__ == "__main__":
     calculate()
@@ -118,3 +181,4 @@ if __name__ == "__main__":
 # 38 total level 5 polygons over this time range takes 35m:15s
 
 # 31m:51s for January 2026 to now
+# 2025 has 85 time steps

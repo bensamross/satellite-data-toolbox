@@ -139,6 +139,10 @@ C₁ = 6
 C₂ = 7.5
 
 ## The new plan
+```mermaid
+flowchart TD
+A --> B
+```
 
 ## How to run the python scripts
 `python zonalStatistics.py --gpkg_path *.gpkg --forest 283 --output outputs/`
