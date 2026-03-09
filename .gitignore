@@ -12,3 +12,4 @@ forest_health
 *.pbix
 forest_health
 *.geojson
+*.gpkg
