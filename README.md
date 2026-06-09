@@ -160,13 +160,8 @@ A --> B
     - item_url = "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2B_MSIL2A_20251124T000219_R030_T56JMR_20251124T013222" (for beerburrum before)
 > Include cloud mask information in the metadata so we can exclude clouded areas from the mean/median monthly summary which might skew the results
 
-## From claude
-Key differences between the two functions now:
-Aspect	compute_zonal_stats_bands	compute_zonal_stats_bands_vectorized
-Parallelism axis	Per-feature (each feature × all times = one task)	Per-time-step (each time × all features)
-Memory	Loads all time steps once, scatters to workers	Loads one time step at a time
-CSV writes	One write per feature (whole file at once)	Appends row-by-row per time step
-Best for	Fewer features, many time steps	Many features, fewer time steps
+## How to collect STAC metadata
+Use the following command `python stac_metadata_to_gpkg.py --gpkg=data/inputs/h3_joined.gpkg --layer=joined_layer --time=2025-01-01/2025-12-31 --resources=resources/resources.json --collection="ga_ls8c_ard_3" --out_gpkg=data/stac.gpkg`
 
 
 ## Notes

@@ -1,0 +1,5422 @@
+---
+name: abares_clum_2020
+license: CC-BY-4.0
+metadata_type: eo3
+description: ABARES Catchment Scale Land Use of Australia - Update December 2020
+metadata:
+  product:
+    name: abares_clum_2020
+  properties:
+    odc:file_format: GeoTIFF
+measurements:
+- name: alum_class
+  dtype: int16
+  units: '1'
+  nodata: 0
+# Product abares_clum_2020
+# url: https://explorer.dea.ga.gov.au/products/abares_clum_2020.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 50
+    y: -50
+...
+---
+name: abares_clum_2023
+license: CC-BY-4.0
+metadata_type: eo3
+description: ABARES Catchment Scale Land Use of Australia - Update December 2023
+metadata:
+  product:
+    name: abares_clum_2023
+  properties:
+    odc:file_format: GeoTIFF
+measurements:
+- name: alum_class
+  dtype: int16
+  units: '1'
+  nodata: 0
+# Product abares_clum_2023
+# url: https://explorer.dea.ga.gov.au/products/abares_clum_2023.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 50
+    y: -50
+...
+---
+# Product aster_aloh_group_composition
+# url: https://explorer.dea.ga.gov.au/products/aster_aloh_group_composition.odc-product.yaml
+name: aster_aloh_group_composition
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_aloh_group_composition
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_aloh_group_content
+# url: https://explorer.dea.ga.gov.au/products/aster_aloh_group_content.odc-product.yaml
+name: aster_aloh_group_content
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_aloh_group_content
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_false_colour
+# url: https://explorer.dea.ga.gov.au/products/aster_false_colour.odc-product.yaml
+name: aster_false_colour
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_false_colour
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+- name: Band_2
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_02
+  - B02
+  - Band2
+- name: Band_3
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_03
+  - B03
+  - Band3
+...
+---
+# Product aster_feoh_group_content
+# url: https://explorer.dea.ga.gov.au/products/aster_feoh_group_content.odc-product.yaml
+name: aster_feoh_group_content
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_feoh_group_content
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_ferric_oxide_composition
+# url: https://explorer.dea.ga.gov.au/products/aster_ferric_oxide_composition.odc-product.yaml
+name: aster_ferric_oxide_composition
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_ferric_oxide_composition
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_ferric_oxide_content
+# url: https://explorer.dea.ga.gov.au/products/aster_ferric_oxide_content.odc-product.yaml
+name: aster_ferric_oxide_content
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_ferric_oxide_content
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_ferrous_iron_content_in_mgoh
+# url: https://explorer.dea.ga.gov.au/products/aster_ferrous_iron_content_in_mgoh.odc-product.yaml
+name: aster_ferrous_iron_content_in_mgoh
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_ferrous_iron_content_in_mgoh
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_ferrous_iron_index
+# url: https://explorer.dea.ga.gov.au/products/aster_ferrous_iron_index.odc-product.yaml
+name: aster_ferrous_iron_index
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_ferrous_iron_index
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_green_vegetation
+# url: https://explorer.dea.ga.gov.au/products/aster_green_vegetation.odc-product.yaml
+name: aster_green_vegetation
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_green_vegetation
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_gypsum_index
+# url: https://explorer.dea.ga.gov.au/products/aster_gypsum_index.odc-product.yaml
+name: aster_gypsum_index
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_gypsum_index
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_kaolin_group_index
+# url: https://explorer.dea.ga.gov.au/products/aster_kaolin_group_index.odc-product.yaml
+name: aster_kaolin_group_index
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_kaolin_group_index
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_mgoh_group_composition
+# url: https://explorer.dea.ga.gov.au/products/aster_mgoh_group_composition.odc-product.yaml
+name: aster_mgoh_group_composition
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_mgoh_group_composition
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_mgoh_group_content
+# url: https://explorer.dea.ga.gov.au/products/aster_mgoh_group_content.odc-product.yaml
+name: aster_mgoh_group_content
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_mgoh_group_content
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_opaque_index
+# url: https://explorer.dea.ga.gov.au/products/aster_opaque_index.odc-product.yaml
+name: aster_opaque_index
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_opaque_index
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_quartz_index
+# url: https://explorer.dea.ga.gov.au/products/aster_quartz_index.odc-product.yaml
+name: aster_quartz_index
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_quartz_index
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product aster_regolith_ratios
+# url: https://explorer.dea.ga.gov.au/products/aster_regolith_ratios.odc-product.yaml
+name: aster_regolith_ratios
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_regolith_ratios
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+- name: Band_2
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_02
+  - B02
+  - Band2
+- name: Band_3
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_03
+  - B03
+  - Band3
+...
+---
+# Product aster_silica_index
+# url: https://explorer.dea.ga.gov.au/products/aster_silica_index.odc-product.yaml
+name: aster_silica_index
+metadata_type: eo
+description: ASTER
+metadata:
+  product_type: aster_silica_index
+  format:
+    name: GeoTIFF
+measurements:
+- name: Band_1
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - B01
+  - Band1
+...
+---
+# Product cemp_insar_alos_displacement
+# url: https://explorer.dea.ga.gov.au/products/cemp_insar_alos_displacement.odc-product.yaml
+name: cemp_insar_alos_displacement
+metadata_type: eo3
+description: CEMP InSAR ALOS Displacement
+metadata:
+  product:
+    name: cemp_insar_alos_displacement
+measurements:
+- name: ew
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - eastwest
+- name: ud
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - updown
+- name: ewstd
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - eastweststandarddev
+- name: upstd
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - updownstandarddev
+...
+---
+# Product cemp_insar_alos_velocity
+# url: https://explorer.dea.ga.gov.au/products/cemp_insar_alos_velocity.odc-product.yaml
+name: cemp_insar_alos_velocity
+metadata_type: eo3
+description: CEMP InSAR ALOS Velocity
+metadata:
+  product:
+    name: cemp_insar_alos_velocity
+measurements:
+- name: ew
+  dtype: float32
+  units: mm/year
+  nodata: -9999
+  aliases:
+  - eastwest
+- name: ud
+  dtype: float32
+  units: mm/year
+  nodata: -9999
+  aliases:
+  - updown
+- name: ewstd
+  dtype: float32
+  units: mm/year
+  nodata: -9999
+  aliases:
+  - eastweststandarddev
+- name: upstd
+  dtype: float32
+  units: mm/year
+  nodata: -9999
+  aliases:
+  - updownstandarddev
+...
+---
+# Product cemp_insar_envisat_displacement
+# url: https://explorer.dea.ga.gov.au/products/cemp_insar_envisat_displacement.odc-product.yaml
+name: cemp_insar_envisat_displacement
+metadata_type: eo3
+description: CEMP InSAR Envisat Displacement
+metadata:
+  product:
+    name: cemp_insar_envisat_displacement
+measurements:
+- name: ew
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - eastwest
+- name: ud
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - updown
+- name: ewstd
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - eastweststandarddev
+- name: upstd
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - updownstandarddev
+...
+---
+# Product cemp_insar_envisat_velocity
+# url: https://explorer.dea.ga.gov.au/products/cemp_insar_envisat_velocity.odc-product.yaml
+name: cemp_insar_envisat_velocity
+metadata_type: eo3
+description: CEMP InSAR Envisat Velocity
+metadata:
+  product:
+    name: cemp_insar_envisat_velocity
+measurements:
+- name: ew
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - eastwest
+- name: ud
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - updown
+- name: ewstd
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - eastweststandarddev
+- name: upstd
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - updownstandarddev
+...
+---
+# Product cemp_insar_radarsat2_displacement
+# url: https://explorer.dea.ga.gov.au/products/cemp_insar_radarsat2_displacement.odc-product.yaml
+name: cemp_insar_radarsat2_displacement
+metadata_type: eo3
+description: CEMP InSAR Radarsat-2 Displacement
+metadata:
+  product:
+    name: cemp_insar_radarsat2_displacement
+measurements:
+- name: ew
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - eastwest
+- name: ud
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - updown
+- name: ewstd
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - eastweststandarddev
+- name: upstd
+  dtype: float32
+  units: mm
+  nodata: -9999
+  aliases:
+  - updownstandarddev
+...
+---
+# Product cemp_insar_radarsat2_velocity
+# url: https://explorer.dea.ga.gov.au/products/cemp_insar_radarsat2_velocity.odc-product.yaml
+name: cemp_insar_radarsat2_velocity
+metadata_type: eo3
+description: CEMP InSAR Radarsat-2 Velocity
+metadata:
+  product:
+    name: cemp_insar_radarsat2_velocity
+measurements:
+- name: ew
+  dtype: float32
+  units: mm/year
+  nodata: -9999
+  aliases:
+  - eastwest
+- name: ud
+  dtype: float32
+  units: mm/year
+  nodata: -9999
+  aliases:
+  - updown
+- name: ewstd
+  dtype: float32
+  units: mm/year
+  nodata: -9999
+  aliases:
+  - eastweststandarddev
+- name: upstd
+  dtype: float32
+  units: mm/year
+  nodata: -9999
+  aliases:
+  - updownstandarddev
+...
+---
+# Product fc_percentile_albers_annual
+# url: https://explorer.dea.ga.gov.au/products/fc_percentile_albers_annual.odc-product.yaml
+name: fc_percentile_albers_annual
+metadata_type: eo
+description: Landsat Fractional Cover percentile 25 metre, 100km tile, Australian
+  Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: fractional_cover_statistical_summary
+  platform:
+    code: LANDSAT_5,LANDSAT_7,LANDSAT_8
+  instrument:
+    name: TM,ETM+,OLI
+  format:
+    name: GeoTIFF
+  statistics:
+    period: 1y
+measurements:
+- name: BS_PC_10
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: PV_PC_10
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: NPV_PC_10
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: BS_PC_50
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: PV_PC_50
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: NPV_PC_50
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: BS_PC_90
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: PV_PC_90
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: NPV_PC_90
+  dtype: int16
+  units: percent
+  nodata: -1
+storage:
+  crs: EPSG:3577
+  driver: GeoTIFF
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product fc_percentile_albers_seasonal
+# url: https://explorer.dea.ga.gov.au/products/fc_percentile_albers_seasonal.odc-product.yaml
+name: fc_percentile_albers_seasonal
+metadata_type: eo
+description: Landsat Fractional Cover percentile 25 metre, 100km tile, Australian
+  Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: fractional_cover_seasonal_summary
+  platform:
+    code: LANDSAT_5,LANDSAT_7,LANDSAT_8
+  instrument:
+    name: TM,ETM+,OLI
+  format:
+    name: GeoTIFF
+  statistics:
+    period: 3m
+measurements:
+- name: BS_PC_10
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: PV_PC_10
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: NPV_PC_10
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: BS_PC_50
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: PV_PC_50
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: NPV_PC_50
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: BS_PC_90
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: PV_PC_90
+  dtype: int16
+  units: percent
+  nodata: -1
+- name: NPV_PC_90
+  dtype: int16
+  units: percent
+  nodata: -1
+storage:
+  crs: EPSG:3577
+  driver: GeoTIFF
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+name: ga_ausbathytopo250m_2023
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia AusBathyTopo 250m (Australia) 2023 Grid - A High-resolution
+  Depth Model for Australia
+metadata:
+  product:
+    name: ga_ausbathytopo250m_2023
+  properties:
+    odc:file_format: GeoTIFF
+measurements:
+- name: height_depth
+  dtype: float32
+  units: m
+  nodata: -32767
+# Product ga_ausbathytopo250m_2023
+# url: https://explorer.dea.ga.gov.au/products/ga_ausbathytopo250m_2023.odc-product.yaml
+load:
+  crs: EPSG:4326
+  align:
+    latitude: 0
+    longitude: 0
+  resolution:
+    latitude: -2.4999999999999415e-03
+    longitude: 2.4999999999999415e-03
+...
+---
+name: ga_ls5t_ard_3
+license: CC-BY-4.0
+metadata_type: eo3_landsat_ard
+description: Geoscience Australia Landsat 5 Thematic Mapper Analysis Ready Data Collection
+  3
+metadata:
+  product:
+    name: ga_ls5t_ard_3
+  properties:
+    eo:platform: landsat-5
+    odc:producer: ga.gov.au
+    eo:instrument: TM
+    odc:product_family: ard
+measurements:
+- name: nbart_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band01
+  - blue
+- name: nbart_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band02
+  - green
+- name: nbart_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band03
+  - red
+- name: nbart_nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band04
+  - nir
+  - nbart_common_nir
+- name: nbart_swir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band05
+  - swir_1
+  - nbart_common_swir_1
+  - swir1
+- name: nbart_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band07
+  - swir_2
+  - nbart_common_swir_2
+  - swir2
+- name: oa_fmask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - fmask
+  flags_definition:
+    fmask:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': nodata
+        '1': valid
+        '2': cloud
+        '3': shadow
+        '4': snow
+        '5': water
+      description: Fmask
+- name: oa_nbart_contiguity
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - nbart_contiguity
+  flags_definition:
+    contiguous:
+      bits:
+      - 0
+      values:
+        '0': false
+        '1': true
+- name: oa_azimuthal_exiting
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_exiting
+- name: oa_azimuthal_incident
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_incident
+- name: oa_combined_terrain_shadow
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - combined_terrain_shadow
+- name: oa_exiting_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - exiting_angle
+- name: oa_incident_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - incident_angle
+- name: oa_relative_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_azimuth
+- name: oa_relative_slope
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_slope
+- name: oa_satellite_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_azimuth
+- name: oa_satellite_view
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_view
+- name: oa_solar_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_azimuth
+- name: oa_solar_zenith
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_zenith
+- name: oa_time_delta
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - time_delta
+# Product ga_ls5t_ard_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls5t_ard_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls5t_gm_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Nadir BRDF Adjusted Reflectance Terrain,
+  Landsat 5 Geomedian Calendar Year Collection 3
+metadata:
+  product:
+    name: ga_ls5t_gm_cyear_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: geomedian
+measurements:
+- name: nbart_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_swir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: sdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: edev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: bcdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: count
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ga_ls5t_gm_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls5t_gm_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls5t_nbart_gm_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Nadir BRDF Adjusted Reflectance Terrain,
+  Landsat 5 Geomedian Calendar Year Collection 3
+metadata:
+  product:
+    name: ga_ls5t_nbart_gm_cyear_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: geomedian
+measurements:
+- name: blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir2
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: sdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: edev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: bcdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: count
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ga_ls5t_nbart_gm_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls5t_nbart_gm_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls7e_ard_3
+license: CC-BY-4.0
+metadata_type: eo3_landsat_ard
+description: Geoscience Australia Landsat 7 Enhanced Thematic Mapper Plus Analysis
+  Ready Data Collection 3
+metadata:
+  product:
+    name: ga_ls7e_ard_3
+  properties:
+    eo:platform: landsat-7
+    odc:producer: ga.gov.au
+    eo:instrument: ETM
+    odc:product_family: ard
+measurements:
+- name: nbart_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band01
+  - blue
+- name: nbart_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band02
+  - green
+- name: nbart_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band03
+  - red
+- name: nbart_nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band04
+  - nir
+  - nbart_common_nir
+- name: nbart_swir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band05
+  - swir_1
+  - nbart_common_swir_1
+  - swir1
+- name: nbart_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band07
+  - swir_2
+  - nbart_common_swir_2
+  - swir2
+- name: nbart_panchromatic
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band08
+  - panchromatic
+- name: oa_fmask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - fmask
+  flags_definition:
+    fmask:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': nodata
+        '1': valid
+        '2': cloud
+        '3': shadow
+        '4': snow
+        '5': water
+      description: Fmask
+- name: oa_nbart_contiguity
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - nbart_contiguity
+  flags_definition:
+    contiguous:
+      bits:
+      - 0
+      values:
+        '0': false
+        '1': true
+- name: oa_azimuthal_exiting
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_exiting
+- name: oa_azimuthal_incident
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_incident
+- name: oa_combined_terrain_shadow
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - combined_terrain_shadow
+- name: oa_exiting_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - exiting_angle
+- name: oa_incident_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - incident_angle
+- name: oa_relative_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_azimuth
+- name: oa_relative_slope
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_slope
+- name: oa_satellite_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_azimuth
+- name: oa_satellite_view
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_view
+- name: oa_solar_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_azimuth
+- name: oa_solar_zenith
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_zenith
+- name: oa_time_delta
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - time_delta
+# Product ga_ls7e_ard_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls7e_ard_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls7e_gm_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Nadir BRDF Adjusted Reflectance Terrain,
+  Landsat 7 Geomedian Calendar Year Collection 3
+metadata:
+  product:
+    name: ga_ls7e_gm_cyear_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: geomedian
+measurements:
+- name: nbart_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_swir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: sdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: edev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: bcdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: count
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ga_ls7e_gm_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls7e_gm_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls7e_nbart_gm_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Nadir BRDF Adjusted Reflectance Terrain,
+  Landsat 7 Geomedian Calendar Year Collection 3
+metadata:
+  product:
+    name: ga_ls7e_nbart_gm_cyear_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: geomedian
+measurements:
+- name: blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir2
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: sdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: edev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: bcdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: count
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ga_ls7e_nbart_gm_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls7e_nbart_gm_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls8c_ard_3
+license: CC-BY-4.0
+metadata_type: eo3_landsat_ard
+description: Geoscience Australia Landsat 8 Operational Land Imager and Thermal Infra-Red
+  Scanner Analysis Ready Data Collection 3
+metadata:
+  product:
+    name: ga_ls8c_ard_3
+  properties:
+    eo:platform: landsat-8
+    odc:producer: ga.gov.au
+    eo:instrument: OLI_TIRS
+    odc:product_family: ard
+measurements:
+- name: nbart_coastal_aerosol
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band01
+  - coastal_aerosol
+- name: nbart_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band02
+  - blue
+- name: nbart_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band03
+  - green
+- name: nbart_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band04
+  - red
+- name: nbart_nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band05
+  - nir
+  - nbart_common_nir
+- name: nbart_swir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band06
+  - swir_1
+  - nbart_common_swir_1
+  - swir1
+- name: nbart_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band07
+  - swir_2
+  - nbart_common_swir_2
+  - swir2
+- name: nbart_panchromatic
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band08
+  - panchromatic
+- name: oa_fmask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - fmask
+  flags_definition:
+    fmask:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': nodata
+        '1': valid
+        '2': cloud
+        '3': shadow
+        '4': snow
+        '5': water
+      description: Fmask
+- name: oa_nbart_contiguity
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - nbart_contiguity
+  flags_definition:
+    contiguous:
+      bits:
+      - 0
+      values:
+        '0': false
+        '1': true
+- name: oa_azimuthal_exiting
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_exiting
+- name: oa_azimuthal_incident
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_incident
+- name: oa_combined_terrain_shadow
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - combined_terrain_shadow
+- name: oa_exiting_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - exiting_angle
+- name: oa_incident_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - incident_angle
+- name: oa_relative_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_azimuth
+- name: oa_relative_slope
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_slope
+- name: oa_satellite_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_azimuth
+- name: oa_satellite_view
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_view
+- name: oa_solar_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_azimuth
+- name: oa_solar_zenith
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_zenith
+- name: oa_time_delta
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - time_delta
+# Product ga_ls8c_ard_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls8c_ard_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls8cls9c_gm_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Nadir BRDF Adjusted Reflectance Terrain,
+  Landsat 8 and 9 Geomedian Calendar Year Collection 3
+metadata:
+  product:
+    name: ga_ls8cls9c_gm_cyear_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: geomedian
+measurements:
+- name: nbart_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_swir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nbart_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: sdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: edev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: bcdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: count
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ga_ls8cls9c_gm_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls8cls9c_gm_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls8c_nbart_gm_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Nadir BRDF Adjusted Reflectance Terrain,
+  Landsat 8 Geomedian Calendar Year Collection 3
+metadata:
+  product:
+    name: ga_ls8c_nbart_gm_cyear_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: geomedian
+measurements:
+- name: blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir2
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: sdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: edev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: bcdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: count
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ga_ls8c_nbart_gm_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls8c_nbart_gm_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls9c_ard_3
+license: CC-BY-4.0
+metadata_type: eo3_landsat_ard
+description: Geoscience Australia Landsat 9 Operational Land Imager and Thermal Infra-Red
+  Scanner Analysis Ready Data Collection 3
+metadata:
+  product:
+    name: ga_ls9c_ard_3
+  properties:
+    eo:platform: landsat-9
+    odc:producer: ga.gov.au
+    eo:instrument: OLI_TIRS
+    odc:product_family: ard
+measurements:
+- name: nbart_coastal_aerosol
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band01
+  - coastal_aerosol
+- name: nbart_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band02
+  - blue
+- name: nbart_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band03
+  - green
+- name: nbart_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band04
+  - red
+- name: nbart_nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band05
+  - nir
+  - nbart_common_nir
+- name: nbart_swir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band06
+  - swir_1
+  - nbart_common_swir_1
+  - swir1
+- name: nbart_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band07
+  - swir_2
+  - nbart_common_swir_2
+  - swir2
+- name: nbart_panchromatic
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band08
+  - panchromatic
+- name: oa_fmask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - fmask
+  flags_definition:
+    fmask:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': nodata
+        '1': valid
+        '2': cloud
+        '3': shadow
+        '4': snow
+        '5': water
+      description: Fmask
+- name: oa_nbart_contiguity
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - nbart_contiguity
+  flags_definition:
+    contiguous:
+      bits:
+      - 0
+      values:
+        '0': false
+        '1': true
+- name: oa_azimuthal_exiting
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_exiting
+- name: oa_azimuthal_incident
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_incident
+- name: oa_combined_terrain_shadow
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - combined_terrain_shadow
+- name: oa_exiting_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - exiting_angle
+- name: oa_incident_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - incident_angle
+- name: oa_relative_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_azimuth
+- name: oa_relative_slope
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_slope
+- name: oa_satellite_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_azimuth
+- name: oa_satellite_view
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_view
+- name: oa_solar_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_azimuth
+- name: oa_solar_zenith
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_zenith
+- name: oa_time_delta
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - time_delta
+# Product ga_ls9c_ard_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls9c_ard_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls_fc_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Fractional Cover Collection 3
+metadata:
+  product:
+    name: ga_ls_fc_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: fc
+measurements:
+- name: bs
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - bare
+- name: pv
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - green_veg
+- name: npv
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - dead_veg
+- name: ue
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - err
+# Product ga_ls_fc_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_fc_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls_fc_pc_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Fractional Cover Percentile Calendar Year
+  Collection 3
+metadata:
+  product:
+    name: ga_ls_fc_pc_cyear_3
+measurements:
+- name: pv_pc_10
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: pv_pc_50
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: pv_pc_90
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: bs_pc_10
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: bs_pc_50
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: bs_pc_90
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: npv_pc_10
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: npv_pc_50
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: npv_pc_90
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: qa
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  flags_definition:
+    qa:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': insufficient observations wet
+        '1': insufficient observations dry
+        '2': sufficient observations
+      description: Quality Assurance
+# Product ga_ls_fc_pc_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_fc_pc_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls_landcover_class_cyear_2
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Land Cover Calendar Year Collection 2.0
+metadata:
+  product:
+    name: ga_ls_landcover_class_cyear_2
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: lc
+measurements:
+- name: level3
+  dtype: uint8
+  units: '1'
+  nodata: 0
+- name: lifeform_veg_cat_l4a
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - lifeform
+- name: canopyco_veg_cat_l4d
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - vegetation_cover
+- name: watersea_veg_cat_l4a_au
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - water_seasonality
+- name: waterstt_wat_cat_l4a
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - water_state
+- name: inttidal_wat_cat_l4a
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - intertidal
+- name: waterper_wat_cat_l4d_au
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - water_persistence
+- name: baregrad_phy_cat_l4d_au
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - bare_gradation
+- name: level4
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - full_classification
+# Product ga_ls_landcover_class_cyear_2
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_landcover_class_cyear_2.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+...
+---
+name: ga_ls_landcover_class_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Land Cover Calendar Year Collection 3.0
+metadata:
+  product:
+    name: ga_ls_landcover_class_cyear_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: lc
+measurements:
+- name: level3
+  dtype: uint8
+  units: '1'
+  nodata: 255
+- name: level4
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - full_classification
+# Product ga_ls_landcover_class_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_landcover_class_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls_mangrove_cover_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Mangrove Cover Calendar Year Collection
+  3
+metadata:
+  product:
+    name: ga_ls_mangrove_cover_cyear_3
+measurements:
+- name: canopy_cover_class
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  flags_definition:
+    woodland:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '1': true
+      description: Woodland
+    notobserved:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': true
+      description: Mangroves not observed
+    open_forest:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '2': true
+      description: Open Forest
+    closed_forest:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '3': true
+      description: Closed Forest
+# Product ga_ls_mangrove_cover_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_mangrove_cover_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls_tc_pc_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Tasseled Cap Percentile Calendar Year Collection
+  3
+metadata:
+  product:
+    name: ga_ls_tc_pc_cyear_3
+measurements:
+- name: wet_pc_10
+  dtype: int16
+  units: percent
+  nodata: -9999
+- name: wet_pc_50
+  dtype: int16
+  units: percent
+  nodata: -9999
+- name: wet_pc_90
+  dtype: int16
+  units: percent
+  nodata: -9999
+- name: green_pc_10
+  dtype: int16
+  units: percent
+  nodata: -9999
+- name: green_pc_50
+  dtype: int16
+  units: percent
+  nodata: -9999
+- name: green_pc_90
+  dtype: int16
+  units: percent
+  nodata: -9999
+- name: bright_pc_10
+  dtype: int16
+  units: percent
+  nodata: -9999
+- name: bright_pc_50
+  dtype: int16
+  units: percent
+  nodata: -9999
+- name: bright_pc_90
+  dtype: int16
+  units: percent
+  nodata: -9999
+# Product ga_ls_tc_pc_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_tc_pc_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls_tcw_percentiles_2
+license: CC-BY-4.0
+metadata_type: eo
+description: Geoscience Australia Landsat Tasseled Cap Wetness Percentiles Collection
+  2, 25 metre, 100km tile, Australian Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: tcw_percentile
+  platform:
+    code: LANDSAT_5,LANDSAT_7,LANDSAT_8
+  instrument:
+    name: TM,ETM+,OLI
+measurements:
+- name: TCW_PC_10
+  dtype: int16
+  units: '1'
+  nodata: -9999
+- name: TCW_PC_50
+  dtype: int16
+  units: '1'
+  nodata: -9999
+- name: TCW_PC_90
+  dtype: int16
+  units: '1'
+  nodata: -9999
+# Product ga_ls_tcw_percentiles_2
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_tcw_percentiles_2.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+...
+---
+name: ga_ls_wo_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Water Observations Collection 3
+metadata:
+  product:
+    name: ga_ls_wo_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: wo
+measurements:
+- name: water
+  dtype: uint8
+  units: '1'
+  nodata: 1
+  flags_definition:
+    dry:
+      bits:
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+      values:
+        '0': true
+      description: No water detected
+    wet:
+      bits:
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+      values:
+        '128': true
+      description: Clear and Wet
+    cloud:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+      description: Cloudy
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+      description: No data
+    high_slope:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+      description: High slope
+    cloud_shadow:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+      description: Cloud shadow
+    noncontiguous:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+      description: At least one EO band is missing or saturated
+    terrain_shadow:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+      description: Terrain shadow
+    water_observed:
+      bits: 7
+      values:
+        '0': false
+        '1': true
+      description: Classified as water by the decision tree
+    low_solar_angle:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+      description: Low solar incidence angle
+# Product ga_ls_wo_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_wo_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls_wo_fq_apr_oct_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Water Observations Frequency April to October
+  Collection 3
+metadata:
+  product:
+    name: ga_ls_wo_fq_apr_oct_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: wo
+measurements:
+- name: count_wet
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: count_clear
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: frequency
+  dtype: float32
+  units: '1'
+  nodata: NaN
+# Product ga_ls_wo_fq_apr_oct_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_wo_fq_apr_oct_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls_wo_fq_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Water Observations Frequency Calendar Year
+  Collection 3
+metadata:
+  product:
+    name: ga_ls_wo_fq_cyear_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: wo
+measurements:
+- name: count_wet
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: count_clear
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: frequency
+  dtype: float32
+  units: '1'
+  nodata: NaN
+# Product ga_ls_wo_fq_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_wo_fq_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls_wo_fq_myear_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Water Observations Frequency Multi Year
+  Collection 3
+metadata:
+  product:
+    name: ga_ls_wo_fq_myear_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: wo
+measurements:
+- name: count_wet
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: count_clear
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: frequency
+  dtype: float32
+  units: '1'
+  nodata: NaN
+# Product ga_ls_wo_fq_myear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_wo_fq_myear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_ls_wo_fq_nov_mar_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Landsat Water Observations Frequency November to
+  March Collection 3
+metadata:
+  product:
+    name: ga_ls_wo_fq_nov_mar_3
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: wo
+measurements:
+- name: count_wet
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: count_clear
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: frequency
+  dtype: float32
+  units: '1'
+  nodata: NaN
+# Product ga_ls_wo_fq_nov_mar_3
+# url: https://explorer.dea.ga.gov.au/products/ga_ls_wo_fq_nov_mar_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 30
+    y: -30
+...
+---
+name: ga_multi_ausbath_0
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Australian Bathymetry and Topography Grid, June
+  2009
+metadata:
+  product:
+    name: ga_multi_ausbath_0
+  properties:
+    odc:file_format: GeoTIFF
+measurements:
+- name: height_depth
+  dtype: int16
+  units: m
+  nodata: -32768
+# Product ga_multi_ausbath_0
+# url: https://explorer.dea.ga.gov.au/products/ga_multi_ausbath_0.odc-product.yaml
+load:
+  crs: EPSG:4326
+  align:
+    latitude: 0
+    longitude: 0
+  resolution:
+    latitude: -2.4999999999999415e-03
+    longitude: 2.4999999999999415e-03
+...
+---
+name: ga_s2am_ard_3
+license: CC-BY-4.0
+metadata_type: eo3_sentinel_ard
+description: Geoscience Australia Sentinel 2A MSI Analysis Ready Data Collection 3
+metadata:
+  product:
+    name: ga_s2am_ard_3
+  properties:
+    eo:platform: sentinel-2a
+    odc:producer: ga.gov.au
+    eo:instrument: MSI
+    odc:product_family: ard
+    dea:product_maturity: stable
+measurements:
+- name: nbart_coastal_aerosol
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band01
+  - coastal_aerosol
+- name: nbart_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band02
+  - blue
+- name: nbart_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band03
+  - green
+- name: nbart_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band04
+  - red
+- name: nbart_red_edge_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band05
+  - red_edge_1
+- name: nbart_red_edge_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band06
+  - red_edge_2
+- name: nbart_red_edge_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band07
+  - red_edge_3
+- name: nbart_nir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band08
+  - nir_1
+  - nbart_common_nir
+- name: nbart_nir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band8a
+  - nir_2
+- name: nbart_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band11
+  - swir_2
+  - nbart_common_swir_1
+  - swir2
+- name: nbart_swir_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band12
+  - swir_3
+  - nbart_common_swir_2
+- name: oa_fmask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - fmask
+  flags_definition:
+    fmask:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': nodata
+        '1': valid
+        '2': cloud
+        '3': shadow
+        '4': snow
+        '5': water
+      description: Fmask
+- name: oa_nbart_contiguity
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - nbart_contiguity
+  flags_definition:
+    contiguous:
+      bits:
+      - 0
+      values:
+        '0': false
+        '1': true
+- name: oa_azimuthal_exiting
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_exiting
+- name: oa_azimuthal_incident
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_incident
+- name: oa_combined_terrain_shadow
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - combined_terrain_shadow
+- name: oa_exiting_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - exiting_angle
+- name: oa_incident_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - incident_angle
+- name: oa_relative_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_azimuth
+- name: oa_relative_slope
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_slope
+- name: oa_satellite_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_azimuth
+- name: oa_satellite_view
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_view
+- name: oa_solar_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_azimuth
+- name: oa_solar_zenith
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_zenith
+- name: oa_time_delta
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - time_delta
+- name: oa_s2cloudless_mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - s2cloudless_mask
+  flags_definition:
+    s2cloudless_mask:
+      bits:
+      - 0
+      - 1
+      - 2
+      values:
+        '0': nodata
+        '1': valid
+        '2': cloud
+      description: s2cloudless mask
+- name: oa_s2cloudless_prob
+  dtype: float64
+  units: '1'
+  nodata: NaN
+  aliases:
+  - s2cloudless_prob
+# Product ga_s2am_ard_3
+# url: https://explorer.dea.ga.gov.au/products/ga_s2am_ard_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 10
+    y: -10
+...
+---
+name: ga_s2am_fmc
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Sentinel 2A MSI Fuel Moisture Content Collection
+  3
+metadata:
+  product:
+    name: ga_s2am_fmc
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: fmc
+measurements:
+- name: fmc
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ga_s2am_fmc
+# url: https://explorer.dea.ga.gov.au/products/ga_s2am_fmc.odc-product.yaml
+load:
+  crs: epsg:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 20
+    y: -20
+...
+---
+name: ga_s2_ba_provisional_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Sentinel 2 Burnt Area Collection 3 (Provisional)
+metadata:
+  product:
+    name: ga_s2_ba_provisional_3
+  properties:
+    odc:producer: ga.gov.au
+    eo:instrument: MSI
+    odc:file_format: GeoTIFF
+    odc:product_family: ba
+    dea:product_maturity: provisional
+measurements:
+- name: delta_nbr
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: delta_ndvi
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: delta_bsi
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: fmask
+  dtype: float32
+  units: '1'
+  nodata: NaN
+# Product ga_s2_ba_provisional_3
+# url: https://explorer.dea.ga.gov.au/products/ga_s2_ba_provisional_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 10
+    y: -10
+...
+---
+name: ga_s2bm_ard_3
+license: CC-BY-4.0
+metadata_type: eo3_sentinel_ard
+description: Geoscience Australia Sentinel 2B MSI Analysis Ready Data Collection 3
+metadata:
+  product:
+    name: ga_s2bm_ard_3
+  properties:
+    eo:platform: sentinel-2b
+    odc:producer: ga.gov.au
+    eo:instrument: MSI
+    odc:product_family: ard
+    dea:product_maturity: stable
+measurements:
+- name: nbart_coastal_aerosol
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band01
+  - coastal_aerosol
+- name: nbart_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band02
+  - blue
+- name: nbart_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band03
+  - green
+- name: nbart_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band04
+  - red
+- name: nbart_red_edge_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band05
+  - red_edge_1
+- name: nbart_red_edge_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band06
+  - red_edge_2
+- name: nbart_red_edge_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band07
+  - red_edge_3
+- name: nbart_nir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band08
+  - nir_1
+  - nbart_common_nir
+- name: nbart_nir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band8a
+  - nir_2
+- name: nbart_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band11
+  - swir_2
+  - nbart_common_swir_1
+  - swir2
+- name: nbart_swir_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band12
+  - swir_3
+  - nbart_common_swir_2
+- name: oa_fmask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - fmask
+  flags_definition:
+    fmask:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': nodata
+        '1': valid
+        '2': cloud
+        '3': shadow
+        '4': snow
+        '5': water
+      description: Fmask
+- name: oa_nbart_contiguity
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - nbart_contiguity
+  flags_definition:
+    contiguous:
+      bits:
+      - 0
+      values:
+        '0': false
+        '1': true
+- name: oa_azimuthal_exiting
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_exiting
+- name: oa_azimuthal_incident
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_incident
+- name: oa_combined_terrain_shadow
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - combined_terrain_shadow
+- name: oa_exiting_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - exiting_angle
+- name: oa_incident_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - incident_angle
+- name: oa_relative_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_azimuth
+- name: oa_relative_slope
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_slope
+- name: oa_satellite_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_azimuth
+- name: oa_satellite_view
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_view
+- name: oa_solar_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_azimuth
+- name: oa_solar_zenith
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_zenith
+- name: oa_time_delta
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - time_delta
+- name: oa_s2cloudless_mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - s2cloudless_mask
+  flags_definition:
+    s2cloudless_mask:
+      bits:
+      - 0
+      - 1
+      - 2
+      values:
+        '0': nodata
+        '1': valid
+        '2': cloud
+      description: s2cloudless mask
+- name: oa_s2cloudless_prob
+  dtype: float64
+  units: '1'
+  nodata: NaN
+  aliases:
+  - s2cloudless_prob
+# Product ga_s2bm_ard_3
+# url: https://explorer.dea.ga.gov.au/products/ga_s2bm_ard_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 10
+    y: -10
+...
+---
+name: ga_s2bm_fmc
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Sentinel 2B MSI Fuel Moisture Content Collection
+  3
+metadata:
+  product:
+    name: ga_s2bm_fmc
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: fmc
+measurements:
+- name: fmc
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ga_s2bm_fmc
+# url: https://explorer.dea.ga.gov.au/products/ga_s2bm_fmc.odc-product.yaml
+load:
+  crs: epsg:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 20
+    y: -20
+...
+---
+name: ga_s2cm_ard_3
+license: CC-BY-4.0
+metadata_type: eo3_sentinel_ard
+description: Geoscience Australia Sentinel 2C MSI Analysis Ready Data Collection 3
+metadata:
+  product:
+    name: ga_s2cm_ard_3
+  properties:
+    eo:platform: sentinel-2c
+    odc:producer: ga.gov.au
+    eo:instrument: MSI
+    odc:product_family: ard
+    dea:product_maturity: stable
+measurements:
+- name: nbart_coastal_aerosol
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band01
+  - coastal_aerosol
+- name: nbart_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band02
+  - blue
+- name: nbart_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band03
+  - green
+- name: nbart_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band04
+  - red
+- name: nbart_red_edge_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band05
+  - red_edge_1
+- name: nbart_red_edge_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band06
+  - red_edge_2
+- name: nbart_red_edge_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band07
+  - red_edge_3
+- name: nbart_nir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band08
+  - nir_1
+  - nbart_common_nir
+- name: nbart_nir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band8a
+  - nir_2
+- name: nbart_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band11
+  - swir_2
+  - nbart_common_swir_1
+  - swir2
+- name: nbart_swir_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nbart_band12
+  - swir_3
+  - nbart_common_swir_2
+- name: oa_fmask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - fmask
+  flags_definition:
+    fmask:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': nodata
+        '1': valid
+        '2': cloud
+        '3': shadow
+        '4': snow
+        '5': water
+      description: Fmask
+- name: oa_nbart_contiguity
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - nbart_contiguity
+  flags_definition:
+    contiguous:
+      bits:
+      - 0
+      values:
+        '0': false
+        '1': true
+- name: oa_azimuthal_exiting
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_exiting
+- name: oa_azimuthal_incident
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - azimuthal_incident
+- name: oa_combined_terrain_shadow
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - combined_terrain_shadow
+- name: oa_exiting_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - exiting_angle
+- name: oa_incident_angle
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - incident_angle
+- name: oa_relative_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_azimuth
+- name: oa_relative_slope
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - relative_slope
+- name: oa_satellite_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_azimuth
+- name: oa_satellite_view
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - satellite_view
+- name: oa_solar_azimuth
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_azimuth
+- name: oa_solar_zenith
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - solar_zenith
+- name: oa_time_delta
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - time_delta
+- name: oa_s2cloudless_mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - s2cloudless_mask
+  flags_definition:
+    s2cloudless_mask:
+      bits:
+      - 0
+      - 1
+      - 2
+      values:
+        '0': nodata
+        '1': valid
+        '2': cloud
+      description: s2cloudless mask
+- name: oa_s2cloudless_prob
+  dtype: float64
+  units: '1'
+  nodata: NaN
+  aliases:
+  - s2cloudless_prob
+# Product ga_s2cm_ard_3
+# url: https://explorer.dea.ga.gov.au/products/ga_s2cm_ard_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 10
+    y: -10
+...
+---
+name: ga_s2cm_fmc
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Sentinel 2C MSI Fuel Moisture Content Collection
+  3
+metadata:
+  product:
+    name: ga_s2cm_fmc
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: fmc
+measurements:
+- name: fmc
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ga_s2cm_fmc
+# url: https://explorer.dea.ga.gov.au/products/ga_s2cm_fmc.odc-product.yaml
+load:
+  crs: epsg:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 20
+    y: -20
+...
+---
+name: ga_s2_coastalecosystems_cyear_3_v1
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Sentinel-2 Coastal Ecosystems Calendar Year Collection
+  3
+metadata:
+  product:
+    name: ga_s2_coastalecosystems_cyear_3_v1
+  properties:
+    odc:producer: ga.gov.au
+    odc:file_format: GeoTIFF
+    odc:product_family: coastalecosystems
+measurements:
+- name: classification
+  dtype: uint8
+  units: class
+  nodata: 255
+  flags_definition:
+    classification:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '2': Tidal flats
+        '3': Mangroves
+        '4': Saltmarsh
+        '5': Seagrass
+      description: Coastal ecosystem class
+- name: mangrove_prob
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: saltmarsh_prob
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: saltflat_prob
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: seagrass_prob
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: qa_count_clear
+  dtype: uint8
+  units: count
+  nodata: 255
+  aliases:
+  - count_clear
+- name: qa_coastal_connectivity
+  dtype: uint16
+  units: mask
+  nodata: 65535
+  aliases:
+  - coastal_connectivity
+# Product ga_s2_coastalecosystems_cyear_3_v1
+# url: https://explorer.dea.ga.gov.au/products/ga_s2_coastalecosystems_cyear_3_v1.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 10
+    y: -10
+...
+---
+name: ga_s2_fmc_3_v1
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Sentinel MSI Fuel Moisture Content Collection 3
+metadata:
+  product:
+    name: ga_s2_fmc_3_v1
+  properties:
+    odc:file_format: GeoTIFF
+    odc:product_family: fmc
+measurements:
+- name: fmc
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ga_s2_fmc_3_v1
+# url: https://explorer.dea.ga.gov.au/products/ga_s2_fmc_3_v1.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 20
+    y: -20
+...
+---
+name: ga_s2ls_intertidal_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3_intertidal
+description: Geoscience Australia Sentinel-2 Landsat Intertidal Calendar Year Collection
+  3
+metadata:
+  product:
+    name: ga_s2ls_intertidal_cyear_3
+  properties:
+    odc:producer: ga.gov.au
+    odc:file_format: GeoTIFF
+    odc:product_family: intertidal
+measurements:
+- name: elevation
+  dtype: float32
+  units: metres above MSL
+  nodata: NaN
+- name: elevation_uncertainty
+  dtype: float32
+  units: metres
+  nodata: NaN
+  aliases:
+  - uncertainty
+- name: exposure
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: extents
+  dtype: uint8
+  units: class
+  nodata: 255
+  flags_definition:
+    extents:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '1': Ocean and coastal waters
+        '2': Exposed intertidal (low confidence)
+        '3': Exposed intertidal (high confidence)
+        '4': Inland waters
+        '5': Land
+      description: Intertidal extents class
+- name: ta_hat
+  dtype: float32
+  units: metres above MSL
+  nodata: NaN
+  aliases:
+  - hat
+- name: ta_hot
+  dtype: float32
+  units: metres above MSL
+  nodata: NaN
+  aliases:
+  - hot
+- name: ta_lot
+  dtype: float32
+  units: metres above MSL
+  nodata: NaN
+  aliases:
+  - lot
+- name: ta_lat
+  dtype: float32
+  units: metres above MSL
+  nodata: NaN
+  aliases:
+  - lat
+- name: ta_offset_high
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - offset_high
+- name: ta_offset_low
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - offset_low
+- name: ta_spread
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - spread
+- name: qa_ndwi_corr
+  dtype: float32
+  units: correlation
+  nodata: NaN
+  aliases:
+  - ndwi_corr
+- name: qa_ndwi_freq
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - ndwi_freq
+- name: qa_count_clear
+  dtype: int16
+  units: count
+  nodata: -999
+  aliases:
+  - count_clear
+- name: qa_coastal_connectivity
+  dtype: uint16
+  units: mask
+  nodata: 65535
+  aliases:
+  - coastal_connectivity
+# Product ga_s2ls_intertidal_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_s2ls_intertidal_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 10
+    y: -10
+...
+---
+name: ga_s2_tidal_composites_cyear_3
+license: CC-BY-4.0
+metadata_type: eo3_intertidal
+description: Geoscience Australia Sentinel-2 Tidal Composites Calendar Year Collection
+  3
+metadata:
+  product:
+    name: ga_s2_tidal_composites_cyear_3
+  properties:
+    odc:producer: ga.gov.au
+    odc:file_format: GeoTIFF
+    odc:product_family: tidal_composites
+measurements:
+- name: low_coastal_aerosol
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band01
+- name: low_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band02
+- name: low_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band03
+- name: low_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band04
+- name: low_red_edge_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band05
+- name: low_red_edge_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band06
+- name: low_red_edge_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band07
+- name: low_nir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band08
+- name: low_nir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band8a
+- name: low_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band11
+- name: low_swir_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - low_band12
+- name: high_coastal_aerosol
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band01
+- name: high_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band02
+- name: high_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band03
+- name: high_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band04
+- name: high_red_edge_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band05
+- name: high_red_edge_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band06
+- name: high_red_edge_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band07
+- name: high_nir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band08
+- name: high_nir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band8a
+- name: high_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band11
+- name: high_swir_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - high_band12
+- name: qa_low_threshold
+  dtype: float32
+  units: metres above MSL
+  nodata: NaN
+  aliases:
+  - low_threshold
+- name: qa_high_threshold
+  dtype: float32
+  units: metres above MSL
+  nodata: NaN
+  aliases:
+  - high_threshold
+- name: qa_count_clear
+  dtype: int16
+  units: count
+  nodata: -999
+  aliases:
+  - count_clear
+# Product ga_s2_tidal_composites_cyear_3
+# url: https://explorer.dea.ga.gov.au/products/ga_s2_tidal_composites_cyear_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 10
+    y: -10
+...
+---
+name: ga_s2_wo_provisional_3
+license: CC-BY-4.0
+metadata_type: eo3
+description: Geoscience Australia Sentinel 2 Near Real Time Water Observations Provisional
+  Collection 3
+metadata:
+  product:
+    name: ga_s2_wo_provisional_3
+  properties:
+    odc:producer: ga.gov.au
+    eo:instrument: MSI
+    odc:file_format: GeoTIFF
+    odc:product_family: wo
+    dea:product_maturity: provisional
+measurements:
+- name: water
+  dtype: uint8
+  units: '1'
+  nodata: 1
+  flags_definition:
+    dry:
+      bits:
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+      values:
+        '0': true
+      description: No water detected
+    wet:
+      bits:
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+      values:
+        '128': true
+      description: Clear and Wet
+    cloud:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+      description: Cloudy
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+      description: No data
+    high_slope:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+      description: High slope
+    cloud_shadow:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+      description: Cloud shadow
+    noncontiguous:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+      description: At least one EO band is missing or saturated
+    terrain_shadow:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+      description: Terrain shadow
+    low_solar_angle:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+      description: Low solar incidence angle
+# Product ga_s2_wo_provisional_3
+# url: https://explorer.dea.ga.gov.au/products/ga_s2_wo_provisional_3.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 10
+    y: -10
+...
+---
+name: ga_srtm_dem1sv1_0
+license: CC-BY-4.0
+metadata_type: eo
+description: SRTM 1 second DEM version 1.0
+metadata:
+  product_type: DEM
+  platform:
+    code: Space Shuttle Endeavour
+  instrument:
+    name: SIR
+measurements:
+- name: dem
+  dtype: float32
+  units: metre
+  nodata: -340282346638528859811704183484516925440
+- name: dem_s
+  dtype: float32
+  units: metre
+  nodata: -340282346638528859811704183484516925440
+- name: dem_h
+  dtype: float32
+  units: metre
+  nodata: -340282346638528859811704183484516925440
+# Product ga_srtm_dem1sv1_0
+# url: https://explorer.dea.ga.gov.au/products/ga_srtm_dem1sv1_0.odc-product.yaml
+load:
+  crs: EPSG:4326
+  resolution:
+    latitude: -2.7777777778e-04
+    longitude: 2.7777777778e-04
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -2.7777777778e-04
+    longitude: 2.7777777778e-04
+...
+---
+name: geodata_coast_100k
+license: CC-BY-4.0
+metadata_type: eo
+description: Coastline data for Australia
+metadata:
+  product_type: model
+  platform:
+    code: unknown
+  instrument:
+    name: unknown
+  format:
+    name: GeoTIFF
+measurements:
+- name: land
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  flags_definition:
+    sea:
+      bits:
+      - 0
+      - 1
+      values:
+        '0': true
+      description: Sea
+    land_type:
+      bits:
+      - 0
+      - 1
+      values:
+        '0': sea
+        '1': island
+        '2': mainland
+      description: Sea, Mainland or Island
+# Product geodata_coast_100k
+# url: https://explorer.dea.ga.gov.au/products/geodata_coast_100k.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+...
+---
+name: high_tide_comp_20p
+license: CC-BY-4.0
+metadata_type: eo
+description: High Tide Composite 25m 2.0.0
+metadata:
+  product_type: tidal_composite
+  format:
+    name: GeoTIFF
+  statistic:
+    name: precisegeomedian
+    source: nbar
+    tidal_range:
+      max: 100
+      min: 80
+      name: high
+measurements:
+- name: blue
+  dtype: float32
+  units: metres
+  nodata: -999
+- name: green
+  dtype: float32
+  units: metres
+  nodata: -999
+- name: red
+  dtype: float32
+  units: metres
+  nodata: -999
+- name: nir
+  dtype: float32
+  units: metres
+  nodata: -999
+- name: swir1
+  dtype: float32
+  units: metres
+  nodata: -999
+- name: swir2
+  dtype: float32
+  units: metres
+  nodata: -999
+# Product high_tide_comp_20p
+# url: https://explorer.dea.ga.gov.au/products/high_tide_comp_20p.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+managed: true
+...
+---
+name: item_v2
+license: CC-BY-4.0
+metadata_type: eo
+description: Intertidal Extents Model 25m 2.0.0
+metadata:
+  product_type: item_v2.0.0
+  format:
+    name: GeoTIFF
+  statistic:
+    name: decile
+measurements:
+- name: relative
+  dtype: int16
+  units: '0.1'
+  nodata: -6666
+# Product item_v2
+# url: https://explorer.dea.ga.gov.au/products/item_v2.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+managed: true
+...
+---
+name: item_v2_conf
+license: CC-BY-4.0
+metadata_type: eo
+description: Intertidal Extents Model confidence 25m 2.0.0
+metadata:
+  product_type: item_v2.0.0
+  format:
+    name: GeoTIFF
+  statistic:
+    name: stddev
+    source: ndwi
+measurements:
+- name: stddev
+  dtype: float32
+  units: '1'
+  nodata: -6666
+# Product item_v2_conf
+# url: https://explorer.dea.ga.gov.au/products/item_v2_conf.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+managed: true
+...
+---
+name: landsat_barest_earth
+license: CC-BY-4.0
+metadata_type: eo
+description: Landsat 30+ Barest Earth
+metadata:
+  product_type: landsat_barest_earth
+  platform:
+    code: LANDSAT_5,LANDSAT_7,LANDSAT_8
+  instrument:
+    name: TM,ETM+,OLI
+  format:
+    name: GeoTIFF
+measurements:
+- name: blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir2
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product landsat_barest_earth
+# url: https://explorer.dea.ga.gov.au/products/landsat_barest_earth.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+storage:
+  crs: EPSG:3577
+  driver: GeoTIFF
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+name: low_tide_comp_20p
+license: CC-BY-4.0
+metadata_type: eo
+description: Low Tide Composite 25m 2.0.0
+metadata:
+  product_type: tidal_composite
+  format:
+    name: GeoTIFF
+  statistic:
+    name: precisegeomedian
+    source: nbar
+    tidal_range:
+      max: 20
+      min: 0
+      name: low
+measurements:
+- name: blue
+  dtype: float32
+  units: metres
+  nodata: -999
+- name: green
+  dtype: float32
+  units: metres
+  nodata: -999
+- name: red
+  dtype: float32
+  units: metres
+  nodata: -999
+- name: nir
+  dtype: float32
+  units: metres
+  nodata: -999
+- name: swir1
+  dtype: float32
+  units: metres
+  nodata: -999
+- name: swir2
+  dtype: float32
+  units: metres
+  nodata: -999
+# Product low_tide_comp_20p
+# url: https://explorer.dea.ga.gov.au/products/low_tide_comp_20p.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+managed: true
+...
+---
+# Product ls5_fc_albers
+# url: https://explorer.dea.ga.gov.au/products/ls5_fc_albers.odc-product.yaml
+name: ls5_fc_albers
+metadata_type: eo
+description: Landsat 5 Fractional Cover 25 metre, 100km tile, Australian Albers Equal
+  Area projection (EPSG:3577)
+metadata:
+  product_type: fractional_cover
+  platform:
+    code: LANDSAT_5
+  instrument:
+    name: TM
+  format:
+    name: GeoTIFF
+measurements:
+- name: BS
+  dtype: int16
+  units: percent
+  nodata: -1
+  aliases:
+  - bare
+- name: PV
+  dtype: int16
+  units: percent
+  nodata: -1
+  aliases:
+  - green_veg
+- name: NPV
+  dtype: int16
+  units: percent
+  nodata: -1
+  aliases:
+  - dead_veg
+- name: UE
+  dtype: int16
+  units: '1'
+  nodata: -1
+  aliases:
+  - err
+storage:
+  crs: EPSG:3577
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product ls5_nbart_geomedian_annual
+# url: https://explorer.dea.ga.gov.au/products/ls5_nbart_geomedian_annual.odc-product.yaml
+name: ls5_nbart_geomedian_annual
+metadata_type: eo
+description: Surface Reflectance Geometric Median 25 metre, 100km tile, Australian
+  Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: surface_reflectance_statistical_summary
+  platform:
+    code: LANDSAT_5
+  instrument:
+    name: TM
+  format:
+    name: GeoTIFF
+  statistics:
+    period: 1y
+measurements:
+- name: blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir2
+  dtype: int16
+  units: '1'
+  nodata: -999
+storage:
+  crs: EPSG:3577
+  driver: GeoTIFF
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product ls5_nbart_tmad_annual
+# url: https://explorer.dea.ga.gov.au/products/ls5_nbart_tmad_annual.odc-product.yaml
+name: ls5_nbart_tmad_annual
+metadata_type: eo
+description: Surface Reflectance Triple Median Absolute Deviation 25 metre, 100km
+  tile, Australian Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: surface_reflectance_triple_mad
+  platform:
+    code: LANDSAT_5
+  instrument:
+    name: TM
+  statistics:
+    period: 1y
+measurements:
+- name: sdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: edev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: bcdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+storage:
+  crs: EPSG:3577
+  driver: GeoTIFF
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product ls7_fc_albers
+# url: https://explorer.dea.ga.gov.au/products/ls7_fc_albers.odc-product.yaml
+name: ls7_fc_albers
+metadata_type: eo
+description: Landsat 7 Fractional Cover 25 metre, 100km tile, Australian Albers Equal
+  Area projection (EPSG:3577)
+metadata:
+  product_type: fractional_cover
+  platform:
+    code: LANDSAT_7
+  instrument:
+    name: ETM
+  format:
+    name: GeoTIFF
+measurements:
+- name: BS
+  dtype: int16
+  units: percent
+  nodata: -1
+  aliases:
+  - bare
+- name: PV
+  dtype: int16
+  units: percent
+  nodata: -1
+  aliases:
+  - green_veg
+- name: NPV
+  dtype: int16
+  units: percent
+  nodata: -1
+  aliases:
+  - dead_veg
+- name: UE
+  dtype: int16
+  units: '1'
+  nodata: -1
+  aliases:
+  - err
+storage:
+  crs: EPSG:3577
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product ls7_nbart_geomedian_annual
+# url: https://explorer.dea.ga.gov.au/products/ls7_nbart_geomedian_annual.odc-product.yaml
+name: ls7_nbart_geomedian_annual
+metadata_type: eo
+description: Surface Reflectance Geometric Median 25 metre, 100km tile, Australian
+  Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: surface_reflectance_statistical_summary
+  platform:
+    code: LANDSAT_7
+  instrument:
+    name: ETM
+  format:
+    name: GeoTIFF
+  statistics:
+    period: 1y
+measurements:
+- name: blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir2
+  dtype: int16
+  units: '1'
+  nodata: -999
+storage:
+  crs: EPSG:3577
+  driver: GeoTIFF
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product ls7_nbart_tmad_annual
+# url: https://explorer.dea.ga.gov.au/products/ls7_nbart_tmad_annual.odc-product.yaml
+name: ls7_nbart_tmad_annual
+metadata_type: eo
+description: Surface Reflectance Triple Median Absolute Deviation 25 metre, 100km
+  tile, Australian Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: surface_reflectance_triple_mad
+  platform:
+    code: LANDSAT_7
+  instrument:
+    name: ETM+
+  statistics:
+    period: 1y
+measurements:
+- name: sdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: edev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: bcdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+storage:
+  crs: EPSG:3577
+  driver: GeoTIFF
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+name: ls8_barest_earth_albers
+license: CC-BY-4.0
+metadata_type: eo
+description: Landsat-8 Barest Earth pixel composite albers 25 metre, 100km tile, Australian
+  Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: landsat8_barest_earth_mosaic
+  platform:
+    code: LANDSAT_8
+  instrument:
+    name: OLI
+  format:
+    name: GeoTIFF
+measurements:
+- name: blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir2
+  dtype: int16
+  units: '1'
+  nodata: -999
+# Product ls8_barest_earth_albers
+# url: https://explorer.dea.ga.gov.au/products/ls8_barest_earth_albers.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+...
+---
+# Product ls8_fc_albers
+# url: https://explorer.dea.ga.gov.au/products/ls8_fc_albers.odc-product.yaml
+name: ls8_fc_albers
+metadata_type: eo
+description: Landsat 8 Fractional Cover 25 metre, 100km tile, Australian Albers Equal
+  Area projection (EPSG:3577)
+metadata:
+  product_type: fractional_cover
+  platform:
+    code: LANDSAT_8
+  instrument:
+    name: OLI_TIRS
+  format:
+    name: GeoTIFF
+measurements:
+- name: BS
+  dtype: int16
+  units: percent
+  nodata: -1
+  aliases:
+  - bare
+- name: PV
+  dtype: int16
+  units: percent
+  nodata: -1
+  aliases:
+  - green_veg
+- name: NPV
+  dtype: int16
+  units: percent
+  nodata: -1
+  aliases:
+  - dead_veg
+- name: UE
+  dtype: int16
+  units: '1'
+  nodata: -1
+  aliases:
+  - err
+storage:
+  crs: EPSG:3577
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product ls8_nbart_geomedian_annual
+# url: https://explorer.dea.ga.gov.au/products/ls8_nbart_geomedian_annual.odc-product.yaml
+name: ls8_nbart_geomedian_annual
+metadata_type: eo
+description: Surface Reflectance Geometric Median 25 metre, 100km tile, Australian
+  Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: surface_reflectance_statistical_summary
+  platform:
+    code: LANDSAT_8
+  instrument:
+    name: OLI
+  format:
+    name: GeoTIFF
+  statistics:
+    period: 1y
+measurements:
+- name: blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: green
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: red
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: nir
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir1
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: swir2
+  dtype: int16
+  units: '1'
+  nodata: -999
+storage:
+  crs: EPSG:3577
+  driver: GeoTIFF
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product ls8_nbart_tmad_annual
+# url: https://explorer.dea.ga.gov.au/products/ls8_nbart_tmad_annual.odc-product.yaml
+name: ls8_nbart_tmad_annual
+metadata_type: eo
+description: Surface Reflectance Triple Median Absolute Deviation 25 metre, 100km
+  tile, Australian Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: surface_reflectance_triple_mad
+  platform:
+    code: LANDSAT_8
+  instrument:
+    name: OLI
+  statistics:
+    period: 1y
+measurements:
+- name: sdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: edev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+- name: bcdev
+  dtype: float32
+  units: '1'
+  nodata: NaN
+storage:
+  crs: EPSG:3577
+  driver: GeoTIFF
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product mangrove_cover
+# url: https://explorer.dea.ga.gov.au/products/mangrove_cover.odc-product.yaml
+name: mangrove_cover
+metadata_type: eo
+description: Mangrove Cover, Australian Albers Equal Area projection (EPSG:3577)
+metadata:
+  product_type: mangrove_extent_cover
+  platform:
+    code: LANDSAT_5,LANDSAT_7,LANDSAT_8
+  instrument:
+    name: TM,ETM+,OLI
+  format:
+    name: GeoTIFF
+measurements:
+- name: canopy_cover_class
+  dtype: int16
+  units: '1'
+  nodata: -1
+  aliases:
+  - cover
+  flags_definition:
+    woodland:
+      bits:
+      - 15
+      - 14
+      - 13
+      - 12
+      - 11
+      - 10
+      - 9
+      - 8
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+      values:
+        '1': true
+      description: Woodland
+    notobserved:
+      bits:
+      - 15
+      - 14
+      - 13
+      - 12
+      - 11
+      - 10
+      - 9
+      - 8
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+      values:
+        '0': true
+      description: Mangroves not observed
+    open_forest:
+      bits:
+      - 15
+      - 14
+      - 13
+      - 12
+      - 11
+      - 10
+      - 9
+      - 8
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+      values:
+        '2': true
+      description: Open Forest
+    closed_forest:
+      bits:
+      - 15
+      - 14
+      - 13
+      - 12
+      - 11
+      - 10
+      - 9
+      - 8
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+      values:
+        '3': true
+      description: Closed Forest
+- name: extent
+  dtype: int16
+  units: '1'
+  nodata: -1
+  aliases:
+  - extent
+storage:
+  crs: EPSG:3577
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+name: multi_scale_topographic_position
+license: CC-BY-4.0
+metadata_type: eo
+description: Multi-scale Topographic Position Image
+metadata:
+  product_type: topographic_model
+  format:
+    name: GeoTIFF
+measurements:
+- name: regional
+  dtype: int16
+  units: '0.0039'
+  nodata: 0
+- name: intermediate
+  dtype: int16
+  units: '0.0039'
+  nodata: 0
+- name: local
+  dtype: int16
+  units: '0.0039'
+  nodata: 0
+# Product multi_scale_topographic_position
+# url: https://explorer.dea.ga.gov.au/products/multi_scale_topographic_position.odc-product.yaml
+load:
+  crs: EPSG:4326
+  resolution:
+    latitude: -8.33333333347e-04
+    longitude: 8.33333333347e-04
+managed: true
+storage:
+  crs: EPSG:4326
+  tile_size:
+    latitude: 1.e+00
+    longitude: 1.e+00
+  resolution:
+    latitude: -8.33333333347e-04
+    longitude: 8.33333333347e-04
+...
+---
+name: nidem
+license: CC-BY-4.0
+metadata_type: eo
+description: National Intertidal Digital Elevation Model 25m 1.0.0
+metadata:
+  product_type: nidem_v1.0.0
+  format:
+    name: GeoTIFF
+measurements:
+- name: nidem
+  dtype: float32
+  units: metres
+  nodata: -9999
+# Product nidem
+# url: https://explorer.dea.ga.gov.au/products/nidem.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+...
+---
+# Product s1_gamma0_geotif_scene
+# url: https://explorer.dea.ga.gov.au/products/s1_gamma0_geotif_scene.odc-product.yaml
+name: s1_gamma0_geotif_scene
+metadata_type: eo
+description: Sentinel-1A/B SAR Gamma0 scenes, processed to the CEOS ARD standard -
+  Orbit updates, GRD border noise, thermal noise, radiometric calibration and terrain
+  correction, orthorectification.
+metadata:
+  product_type: gamma0
+  platform:
+    code: SENTINEL_1
+  instrument:
+    name: SAR
+  format:
+    name: GeoTiff
+measurements:
+- name: vh
+  dtype: float32
+  units: DN
+  nodata: 0
+- name: vv
+  dtype: float32
+  units: DN
+  nodata: 0
+...
+---
+name: s2_barest_earth
+license: CC-BY-4.0
+metadata_type: eo3
+description: Sentinel-2 Barest Earth
+metadata:
+  product:
+    name: s2_barest_earth
+measurements:
+- name: s2be_blue
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - blue
+  - s2be_band_02
+  - s2be_B02
+  - s2be_Band2
+- name: s2be_green
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - green
+  - s2be_band_03
+  - s2be_B03
+  - s2be_Band3
+- name: s2be_red
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - red
+  - s2be_band_04
+  - s2be_B04
+  - s2be_Band4
+- name: s2be_red_edge_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - red_edge_1
+  - s2be_band_05
+  - s2be_B05
+  - s2be_Band5
+- name: s2be_red_edge_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - red_edge_2
+  - s2be_band_06
+  - s2be_B06
+  - s2be_Band6
+- name: s2be_red_edge_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - red_edge_3
+  - s2be_band_07
+  - s2be_B07
+  - s2be_Band7
+- name: s2be_nir_1
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nir_1
+  - s2be_band_08
+  - s2be_B08
+  - s2be_Band8
+- name: s2be_nir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - nir_2
+  - s2be_band_8A
+  - s2be_B8A
+  - s2be_Band8A
+- name: s2be_swir_2
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - swir_2
+  - s2be_band_11
+  - s2be_B11
+  - s2be_Band11
+- name: s2be_swir_3
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - swir_3
+  - s2be_band_12
+  - s2be_B12
+  - s2be_Band12
+# Product s2_barest_earth
+# url: https://explorer.dea.ga.gov.au/products/s2_barest_earth.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 10
+    y: -10
+...
+---
+name: weathering_intensity
+license: CC-BY-4.0
+metadata_type: eo
+description: Weathering Intensity Model
+metadata:
+  product_type: model
+  platform:
+    code: unknown
+  instrument:
+    name: STRM
+  format:
+    name: GeoTIFF
+measurements:
+- name: intensity
+  dtype: float32
+  units: '0.16666666666666666'
+  nodata: -1
+# Product weathering_intensity
+# url: https://explorer.dea.ga.gov.au/products/weathering_intensity.odc-product.yaml
+load:
+  crs: EPSG:4326
+  resolution:
+    latitude: -8.33333333347e-04
+    longitude: 8.33333333347e-04
+storage:
+  crs: EPSG:4326
+  tile_size:
+    latitude: 1.2e+03
+    longitude: 1.2e+03
+  resolution:
+    latitude: -8.33333333347e-04
+    longitude: 8.33333333347e-04
+...
+---
+# Product wofs_albers
+# url: https://explorer.dea.ga.gov.au/products/wofs_albers.odc-product.yaml
+name: wofs_albers
+metadata_type: eo
+description: Historic Flood Mapping Water Observations from Space
+metadata:
+  product_type: wofs
+  format:
+    name: GeoTIFF
+measurements:
+- name: water
+  dtype: int16
+  units: '1'
+  nodata: 1
+  flags_definition:
+    dry:
+      bits:
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 1
+      - 0
+      values:
+        '0': true
+      description: No water detected
+    sea:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+      description: Sea
+    wet:
+      bits:
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 1
+      - 0
+      values:
+        '128': true
+      description: Clear and Wet
+    cloud:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+      description: Cloudy
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+      description: No data
+    high_slope:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+      description: High slope
+    cloud_shadow:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+      description: Cloud shadow
+    noncontiguous:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+      description: At least one EO band is missing over over/undersaturated
+    terrain_or_low_angle:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+      description: terrain shadow or low solar angle
+storage:
+  crs: EPSG:3577
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product wofs_annual_summary
+# url: https://explorer.dea.ga.gov.au/products/wofs_annual_summary.odc-product.yaml
+name: wofs_annual_summary
+metadata_type: eo
+description: Water Observations from Space Annual Statistics
+metadata:
+  product_type: wofs_annual_summary
+  platform:
+    code: LANDSAT_5,LANDSAT_7,LANDSAT_8
+  instrument:
+    name: TM,ETM,OLI
+  format:
+    name: GeoTIFF
+measurements:
+- name: count_wet
+  dtype: int16
+  units: '1'
+  nodata: -1
+- name: count_clear
+  dtype: int16
+  units: '1'
+  nodata: -1
+- name: frequency
+  dtype: float32
+  units: '1'
+  nodata: -1
+storage:
+  crs: EPSG:3577
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+# Product wofs_apr_oct_summary
+# url: https://explorer.dea.ga.gov.au/products/wofs_apr_oct_summary.odc-product.yaml
+name: wofs_apr_oct_summary
+metadata_type: eo
+description: Water Observations from Space April to October Statistics
+metadata:
+  product_type: wofs_apr_oct_summary
+  platform:
+    code: LANDSAT_5,LANDSAT_7,LANDSAT_8
+  instrument:
+    name: TM,ETM,OLI
+  format:
+    name: GeoTIFF
+measurements:
+- name: count_wet
+  dtype: int16
+  units: '1'
+  nodata: -1
+- name: count_clear
+  dtype: int16
+  units: '1'
+  nodata: -1
+- name: frequency
+  dtype: float32
+  units: '1'
+  nodata: -1
+storage:
+  crs: EPSG:3577
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+name: wofs_filtered_summary
+license: CC-BY-4.0
+metadata_type: eo
+description: Water Observations from Space Statistics confidence filtered
+metadata:
+  product_type: wofs_filtered_summary
+  platform:
+    code: LANDSAT_5,LANDSAT_7,LANDSAT_8
+  instrument:
+    name: TM,ETM+,OLI
+  format:
+    name: GeoTIFF
+measurements:
+- name: confidence
+  dtype: float32
+  units: '1'
+  nodata: -1
+- name: wofs_filtered_summary
+  dtype: float32
+  units: '1'
+  nodata: -1
+# Product wofs_filtered_summary
+# url: https://explorer.dea.ga.gov.au/products/wofs_filtered_summary.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+...
+---
+# Product wofs_nov_mar_summary
+# url: https://explorer.dea.ga.gov.au/products/wofs_nov_mar_summary.odc-product.yaml
+name: wofs_nov_mar_summary
+metadata_type: eo
+description: Water Observations from Space November to March Statistics
+metadata:
+  product_type: wofs_nov_mar_summary
+  platform:
+    code: LANDSAT_5,LANDSAT_7,LANDSAT_8
+  instrument:
+    name: TM,ETM,OLI
+  format:
+    name: GeoTIFF
+measurements:
+- name: count_wet
+  dtype: int16
+  units: '1'
+  nodata: -1
+- name: count_clear
+  dtype: int16
+  units: '1'
+  nodata: -1
+- name: frequency
+  dtype: float32
+  units: '1'
+  nodata: -1
+storage:
+  crs: EPSG:3577
+  tile_size:
+    x: 1.e+05
+    y: 1.e+05
+  resolution:
+    x: 25
+    y: -25
+  dimension_order:
+  - time
+  - y
+  - x
+...
+---
+name: wofs_summary
+license: CC-BY-4.0
+metadata_type: eo
+description: Water Observations from Space Statistics
+metadata:
+  product_type: wofs_statistical_summary
+  platform:
+    code: LANDSAT_5,LANDSAT_7,LANDSAT_8
+  instrument:
+    name: TM,ETM+,OLI
+  format:
+    name: GeoTIFF
+measurements:
+- name: count_wet
+  dtype: int16
+  units: '1'
+  nodata: -1
+- name: count_clear
+  dtype: int16
+  units: '1'
+  nodata: -1
+- name: frequency
+  dtype: float32
+  units: '1'
+  nodata: -1
+# Product wofs_summary
+# url: https://explorer.dea.ga.gov.au/products/wofs_summary.odc-product.yaml
+load:
+  crs: EPSG:3577
+  align:
+    x: 0
+    y: 0
+  resolution:
+    x: 25
+    y: -25
+...
