@@ -4,14 +4,14 @@ import geopandas as gpd
 
 
 # Define the target area
-gdf = gpd.read_file('data/inputs/h3.gpkg', layer='h3_elliott_river')
+gdf = gpd.read_file('../data/inputs/h3.gpkg', layer='h3_elliott_river')
 gdf = gdf[gdf['level'] == 8].iloc[:4]
 gdf = gdf.to_crs("EPSG: 32756")
 print(gdf.head())
 
 
 # Fetch STAC data
-resource = utilities.load_resource("resources/dea-ga_s2bm_ard_3.yaml")
+resource = utilities.load_resource("../resources/dea-ga_s2bm_ard_3.yaml")
 
 url = resource["url"]
 sensor_name = resource["name"]

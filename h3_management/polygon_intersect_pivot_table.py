@@ -1,6 +1,6 @@
 import geopandas as gpd
 
-gdf = gpd.read_file('data/inputs/h3.gpkg', layer='h3_elliott_river')
+gdf = gpd.read_file('../data/inputs/h3.gpkg', layer='h3_elliott_river')
 print(gdf.head(), gdf.shape)
 
 gdf_level7 = gdf[gdf['level'] == 5]

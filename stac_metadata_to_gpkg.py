@@ -1,16 +1,16 @@
 # python stac_metadata_to_gpkg.py --gpkg ./inputs/hexgrids.gpkg --layer tesselated_10ha_hexagons_within_10km_of_plantation --time 2025-01-01/2025-12-31 --prese="Digital Earth Australia" --out_gpkg ./stac.gpkg --out_layer stac
 
+# python stac_metadata_to_gpkg.py --gpkg=data/inputs/h3_joined.gpkg --layer=joined_layer --time=2017-07-01/2026-03-17 --resources=resources/resources.json --collection="ga_s2bm_ard_3" --out_gpkg=data/stac_s2_ending_2018.gpkg
+
 import argparse
 import json
 import logging
 from pathlib import Path
 from datetime import datetime
-
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import shape, box
 import pystac_client
-from tqdm.auto import tqdm
 import fiona
 
 def extract_item_record(item):
@@ -131,7 +131,7 @@ def main():
     logger.info(f"Found {len(items)} items")
 
     records = []
-    for item in tqdm(items, desc="Fetching STAC items", unit="item"):
+    for item in items:
         rec = extract_item_record(item)
         if rec["geometry"] is None:
             logger.debug(f"Skipping item without geometry: {rec.get('item_id')}")
@@ -220,3 +220,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# python stac_metadata_to_gpkg.py --gpkg=data/inputs/h3_joined.gpkg --layer=joined_layer --time=2021-01-01/2021-12-31 --resources=resources/resources.json --preset="Microsoft Planetary Computer" --collection="sentinel-2-l2a" --out_gpkg=data/stac_s2.gpkg --out_layer="y2021"

@@ -12,7 +12,7 @@ def calculate():
     start_time = time.perf_counter()
 
     # Define the target area
-    gdf = gpd.read_file('data/inputs/h3.gpkg', layer='h3_elliott_river')
+    gdf = gpd.read_file('../data/inputs/h3.gpkg', layer='h3_elliott_river')
     selecting_larger_polygons = gdf[gdf['level'] == 8].iloc[:2] # just pick the first two
     larger_polygon = selecting_larger_polygons.geometry.unary_union  # merge into a single geometry
     gdf = gdf[gdf.geometry.within(larger_polygon)] # select only the polygons within the larger one
@@ -24,7 +24,7 @@ def calculate():
     # Fetch STAC data
     # resource = utilities.load_resource("resources/dea-ga_s2bm_ard_3.yaml")
     # resource = utilities.load_resource("resources/pc-sentinel-2-l2a.yaml")
-    resource = utilities.load_resource("resources/pc-landsat-c2-l2.yaml")
+    resource = utilities.load_resource("../resources/pc-landsat-c2-l2.yaml")
 
     url = resource["url"]
     sensor_name = resource["name"]

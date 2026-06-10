@@ -19,7 +19,7 @@ dry_run = True # Export STAC metadata only
 # resource = utilities.load_resource(r"resources/dea-ga_s2bm_ard_3.yaml")
 # resource = utilities.load_resource(r"resources/pc-sentinel-2-l2a.yaml")
 # resource = utilities.load_resource("resources/pc-landsat-c2-l2.yaml")
-resource = utilities.load_resource(r"resources/dea-ga_ls8c_ard_3.yaml")
+resource = utilities.load_resource(r"../resources/dea-ga_ls8c_ard_3.yaml")
 # resource = utilities.load_resource(r"resources/dea-ga_ls7e_ard_3.yaml")
 # resource = utilities.load_resource(r"resources/dea-ga_ls5t_ard_3.yaml")
 
@@ -82,7 +82,7 @@ time_ranges = [
 # Define the target area
 # gdf = gpd.read_file('data/inputs/h3.gpkg', layer='h3_elliott_river')
 # gdf = gpd.read_file('data/inputs/h3.gpkg', layer='h3')
-gdf = gpd.read_file('data/inputs/h3_joined.gpkg', layer='joined_layer')
+gdf = gpd.read_file('../data/inputs/h3_joined.gpkg', layer='joined_layer')
 
 def _append_failure_row(failure_csv_path: str, row: dict):
     fieldnames = [

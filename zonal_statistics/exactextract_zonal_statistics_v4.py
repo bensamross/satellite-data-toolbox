@@ -8,7 +8,7 @@ import tqdm
 def calculate():
 
     # Define the target area
-    gdf = gpd.read_file('data/inputs/h3.gpkg', layer='h3_elliott_river')
+    gdf = gpd.read_file('../data/inputs/h3.gpkg', layer='h3_elliott_river')
     gdf_level5 = gdf[gdf['level'] == 5]
     # gdf_level7 = gdf[gdf['level'] == 7]
     gdf_level10 = gdf[gdf['level'] == 10]
@@ -21,7 +21,7 @@ def calculate():
     # Fetch STAC data
     # resource = utilities.load_resource("resources/dea-ga_s2bm_ard_3.yaml")
     # resource = utilities.load_resource("resources/pc-sentinel-2-l2a.yaml")
-    resource = utilities.load_resource("resources/pc-landsat-c2-l2.yaml")
+    resource = utilities.load_resource("../resources/pc-landsat-c2-l2.yaml")
 
     url = resource["url"]
     sensor_name = resource["name"]

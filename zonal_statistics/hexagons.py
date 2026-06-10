@@ -1,13 +1,15 @@
 import geopandas as gpd
 import utilities
-import zonal_statistics
+from zonal_statistics import zonal_statistics
+
+
 # import combineCSV
 
 def main():
-    gdf = gpd.read_file('./data/inputs/h3.gpkg', layer='h3_elliott_river')
+    gdf = gpd.read_file('../data/inputs/h3.gpkg', layer='h3_elliott_river')
     gdf.to_crs('EPSG:4326', inplace=True)
 
-    resource = utilities.load_resource("./resources/dea-ga_s2bm_ard_3.yaml")
+    resource = utilities.load_resource("../resources/dea-ga_s2bm_ard_3.yaml")
 
     url = resource["url"]
     sensor_name = resource["name"]
@@ -45,7 +47,7 @@ def main():
         gdf=level10_gdf,
         key_column_name='GRID_ID',
         bands=bands,
-        output_dir="./data/outputs/hexagons_elliott_river",
+        output_dir="../data/outputs/hexagons_elliott_river",
         overwrite=True,
         use_dask=True,
         dask_client=dask_client,

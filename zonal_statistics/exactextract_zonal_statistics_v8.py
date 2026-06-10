@@ -55,7 +55,7 @@ def calculate():
             # Define the target area
             # gdf = gpd.read_file('data/inputs/h3.gpkg', layer='h3_elliott_river')
             # gdf = gpd.read_file('data/inputs/h3.gpkg', layer='h3')
-            gdf = gpd.read_file('data/inputs/h3_joined.gpkg', layer='joined_layer')
+            gdf = gpd.read_file('../data/inputs/h3_joined.gpkg', layer='joined_layer')
 
             for zone in gdf['zone'].unique():
                 print(f"Processing zone {zone}")
@@ -72,7 +72,7 @@ def calculate():
                 
                 # Fetch STAC data
                 # resource = utilities.load_resource(r"resources/dea-ga_s2bm_ard_3.yaml")
-                resource = utilities.load_resource(r"resources/pc-sentinel-2-l2a.yaml")
+                resource = utilities.load_resource(r"../resources/pc-sentinel-2-l2a.yaml")
                 # resource = utilities.load_resource("resources/pc-landsat-c2-l2.yaml")
 
                 url = resource["url"]

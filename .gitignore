@@ -7,9 +7,8 @@ example/example_outputs/
 data/
 *.pmtiles
 *.csv
-forest_health
 *.qgz
 *.pbix
-forest_health
 *.geojson
 *.gpkg
+*.ipynb

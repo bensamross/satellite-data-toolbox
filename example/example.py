@@ -2,7 +2,6 @@ import geopandas as gpd
 import sys
 sys.path.append("..") # this is only required when the imports are a level above the current file, typically not required
 import utilities
-import zonal_statistics
 import combineCSV
 
 gdf = gpd.read_file('./hexgrids_example.gpkg', layer='tesselated_10ha_hexagons_on_bribie_island')
